@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main(int argc, char *argv[]) {
-	unsigned MAXSIZE;
-	unsigned MAXWAVES;
+void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 	unsigned i,j;
 	float *RealIn;
 	float *ImagIn;
@@ -14,19 +12,6 @@ int main(int argc, char *argv[]) {
 	float *amp;
 	int invfft=0;
 
-	if (argc<3)
-	{
-		printf("Usage: fft <waves> <length> -i\n");
-		printf("-i performs an inverse fft\n");
-		printf("make <waves> random sinusoids");
-		printf("<length> is the number of samples\n");
-		exit(-1);
-	}
-	else if (argc==4)
-		invfft = !strncmp(argv[3],"-i",2);
-	MAXSIZE=atoi(argv[2]);
-	MAXWAVES=atoi(argv[1]);
-		
  srand(1);
 
  RealIn=(float*)malloc(sizeof(float)*MAXSIZE);
@@ -80,7 +65,39 @@ printf("ImagOut:\n");
  free(ImagOut);
  free(coeff);
  free(amp);
- exit(0);
 
+}
 
+int main(int argc, char *argv[]) {
+	unsigned MAXSIZE;
+	unsigned MAXWAVES;
+
+	/* Disable command line args to run on Zybo
+	if (argc<3)
+	{
+		printf("Usage: fft <waves> <length> -i\n");
+		printf("-i performs an inverse fft\n");
+		printf("make <waves> random sinusoids");
+		printf("<length> is the number of samples\n");
+		exit(-1);
+	}
+	else if (argc==4)
+		invfft = !strncmp(argv[3],"-i",2);
+	*/
+
+	MAXSIZE= 4096; // atoi(argv[2]);
+	MAXWAVES= 4; //atoi(argv[1]);
+
+	printf("Starting FFT with %d %d\n", MAXWAVES, MAXSIZE);
+
+	run_fft(MAXWAVES, MAXSIZE);
+	run_fft(MAXWAVES, MAXSIZE);
+	run_fft(MAXWAVES, MAXSIZE);
+
+	asm("drseus_start_tag:");
+	run_fft(MAXWAVES, MAXSIZE);
+	asm("drseus_end_tag:");
+	printf("safeword ");
+
+	exit(0);
 }
