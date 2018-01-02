@@ -1,7 +1,7 @@
 OBJ = main.o fftmisc.o  fourierf.o
 FILE = main.c fftmisc.c  fourierf.c
 CFLAGS = -static -O3
-INC = -I../../../jtag_eval/basic_bsp/ps7_cortexa9_0/include
+INC = -I../../../jtag_eval/basic_bsp/ps7_cortexa9_0/include -I../../zybo_build_common
 LIB = -L../../../jtag_eval/basic_bsp/ps7_cortexa9_0/lib
 
 SPEC = -specs=../../zybo_build_common/Xilinx.spec

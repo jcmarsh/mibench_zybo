@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <platform.h>
 
 void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 	unsigned i,j;
@@ -87,6 +88,8 @@ int main(int argc, char *argv[]) {
 
 	MAXSIZE= 4096; // atoi(argv[2]);
 	MAXWAVES= 4; //atoi(argv[1]);
+
+	init_platform();
 
 	printf("Starting FFT with %d %d\n", MAXWAVES, MAXSIZE);
 
