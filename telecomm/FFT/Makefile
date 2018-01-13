@@ -1,6 +1,6 @@
 OBJ = main.o fftmisc.o  fourierf.o
 FILE = main.c fftmisc.c  fourierf.c
-CFLAGS = -static -O3
+CFLAGS = -Wall -static -O3
 INC = -I../../../jtag_eval/basic_bsp/ps7_cortexa9_0/include -I../../zybo_build_common
 LIB = -L../../../jtag_eval/basic_bsp/ps7_cortexa9_0/lib
 
@@ -29,32 +29,32 @@ USER_OBJS :=
 LIBS := -Wl,-lm,--start-group,-lxil,-lgcc,-lc,--end-group
 
 
-ELFSIZE += fft.elf.size
+ELFSIZE += mi_fft.elf.size
 
 # All Target
 all: pre-build main-build
 
 # Main-build Target
-main-build: fft.elf secondary-outputs
+main-build: mi_fft.elf secondary-outputs
 
 
 %.o: %.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM v7 gcc compiler'
-	arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard $(INC) -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	arm-none-eabi-gcc $(CFLAGS) -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard $(INC) -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-fft.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
+mi_fft.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM v7 gcc linker'
 	arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none $(SPEC) -Wl,-T -Wl,$(LD_SRCS) $(LIB) -o "mi_fft.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-fft.elf.size: fft.elf
+mi_fft.elf.size: mi_fft.elf
 	@echo 'Invoking: ARM v7 Print Size'
-	arm-none-eabi-size fft.elf  |tee "fft.elf.size"
+	arm-none-eabi-size mi_fft.elf  |tee "mi_fft.elf.size"
 	@echo 'Finished building: $@'
 	@echo ' '
 
