@@ -1,9 +1,12 @@
 #include "snipmath.h"
 #include <math.h>
+#include <platform.h>
+#include <xgpio.h>
+#include <xil_printf.h>
 
 /* The printf's may be removed to isolate just the math calculations */
 
-int main(void)
+int single_run(void)
 {
   double  a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
   double  a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
@@ -81,4 +84,19 @@ int main(void)
   
   
   return 0;
+}
+
+int main(void) {
+  init_platform();
+
+  xil_printf("Starting basicmath small\n");
+
+  single_run();
+  single_run();
+  single_run();
+
+  asm("drseus_start_tag:");
+  single_run();
+  asm("drseus_end_tag:");
+  xil_printf("safeword ");
 }
