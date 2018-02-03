@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <platform.h>
+#include <unistd.h>
+#include "xuartps.h"
 
 void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 	unsigned i,j;
@@ -86,10 +88,13 @@ int main(int argc, char *argv[]) {
 		invfft = !strncmp(argv[3],"-i",2);
 	*/
 
-	MAXSIZE= 4096; // atoi(argv[2]);
-	MAXWAVES= 4; //atoi(argv[1]);
+	// MAXSIZE= 4096; // atoi(argv[2]);
+	// MAXWAVES= 4; //atoi(argv[1]);
 
-	init_platform();
+	MAXSIZE= 512; // atoi(argv[2]);
+	MAXWAVES= 2; //atoi(argv[1]);
+
+        init_platform();
 
 	printf("Starting FFT with %d %d\n", MAXWAVES, MAXSIZE);
 
@@ -100,7 +105,7 @@ int main(int argc, char *argv[]) {
 	asm("drseus_start_tag:");
 	run_fft(MAXWAVES, MAXSIZE);
 	asm("drseus_end_tag:");
-	printf("safeword ");
+	printf("\nsafeword ");
 
 	exit(0);
 }
