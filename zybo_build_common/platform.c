@@ -31,7 +31,8 @@
 ******************************************************************************/
 
 #include "xparameters.h"
-#include "xil_cache.h"
+//#include "xil_cache.h"
+#include "xil_cache_l.h"
 
 #include "platform_config.h"
 
@@ -94,8 +95,26 @@ init_platform()
      */
     /* ps7_init();*/
     /* psu_init();*/
-    enable_caches();
+    //enable_caches(); // Update print statement as well
+    //disable_caches();
+
+    //Xil_L1DCacheEnable();
+    //Xil_L1ICacheEnable();
+    //Xil_L2CacheEnable();
+    //init_uart();
+    //print("Caches ALL ON\n");
+
+    //Xil_L1DCacheDisable();
+    //Xil_L1ICacheDisable();
+    //Xil_L2CacheEnable();
+    //init_uart();
+    //print("Only L2 Cache\n");
+
+    Xil_L1DCacheDisable();
+    Xil_L1ICacheDisable();
+    Xil_L2CacheDisable();
     init_uart();
+    print("No Caches!\n");
 }
 
 void
