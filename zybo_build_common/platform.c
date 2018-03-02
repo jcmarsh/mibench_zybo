@@ -38,18 +38,23 @@
 void
 init_platform()
 {
-    //Xil_L1DCacheEnable();
-    //Xil_L1ICacheEnable();
-    //Xil_L2CacheEnable();
-    //print("Caches ALL ON\n");
+  //Xil_L1DCacheEnable();
+  //Xil_L1ICacheEnable();
+  //Xil_L2CacheEnable();
+  //print("Caches ALL ON\n");
 
-    //Xil_L1DCacheDisable();
-    //Xil_L1ICacheDisable();
-    //Xil_L2CacheEnable();
-    //print("Only L2 Cache\n");
+  //Xil_L1DCacheEnable();
+  //Xil_L1ICacheEnable();
+  //Xil_L2CacheDisable();
+  //print("L1D and L1I Caches ON\n");
 
-    Xil_L1DCacheDisable();
-    Xil_L1ICacheDisable();
-    Xil_L2CacheDisable();
-    xil_printf("No Caches!\n");
+  Xil_L1DCacheDisable();
+  Xil_L1ICacheDisable();
+  Xil_L2CacheEnable();
+  print("Only L2 Cache\n");
+
+  //Xil_L1DCacheDisable();
+  //Xil_L1ICacheDisable();
+  //Xil_L2CacheDisable();
+  //xil_printf("No Caches!\n");
 }
