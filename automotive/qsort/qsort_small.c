@@ -23,23 +23,12 @@ int compare(const void *elem1, const void *elem2)
 
 int
 main(int argc, char *argv[]) {
-  struct myStringStruct array[MAXARRAY];
+  //struct myStringStruct array[MAXARRAY];
+  struct myStringStruct array[100];
   //FILE *fp;
   int i,count=0;
 
-  /*
-  if (argc<2) {
-    fprintf(stderr,"Usage: qsort_small <file>\n");
-    exit(-1);
-  }
-  else {
-    fp = fopen(argv[1],"r");
-    
-    while((fscanf(fp, "%s", &array[count].qstring) == 1) && (count < MAXARRAY)) {
-	 count++;
-    }
-  }
-  */
+  init_platform();
 
   sprintf(array[count++].qstring, "Kurt");
   sprintf(array[count++].qstring, "Vonneguts");
@@ -51,6 +40,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "gentlemen");
   sprintf(array[count++].qstring, "of");
+  // 10
+
+  /* */
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "class");
   sprintf(array[count++].qstring, "of");
@@ -61,6 +53,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "I");
   sprintf(array[count++].qstring, "could");
   sprintf(array[count++].qstring, "offer");
+  // 20
+
+  /* */
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "only");
   sprintf(array[count++].qstring, "one");
@@ -71,6 +66,8 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "sunscreen");
   sprintf(array[count++].qstring, "would");
   sprintf(array[count++].qstring, "be");
+  // 30
+
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "The");
   sprintf(array[count++].qstring, "longterm");
@@ -81,6 +78,8 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "been");
   sprintf(array[count++].qstring, "proved");
   sprintf(array[count++].qstring, "by");
+  // 40
+
   sprintf(array[count++].qstring, "scientists");
   sprintf(array[count++].qstring, "whereas");
   sprintf(array[count++].qstring, "the");
@@ -91,6 +90,8 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "has");
   sprintf(array[count++].qstring, "no");
   sprintf(array[count++].qstring, "basis");
+  // 50
+
   sprintf(array[count++].qstring, "more");
   sprintf(array[count++].qstring, "reliable");
   sprintf(array[count++].qstring, "than");
@@ -101,6 +102,8 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "I");
   sprintf(array[count++].qstring, "will");
   sprintf(array[count++].qstring, "dispense");
+  // 60
+
   sprintf(array[count++].qstring, "this");
   sprintf(array[count++].qstring, "advice");
   sprintf(array[count++].qstring, "now");
@@ -111,6 +114,8 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "beauty");
   sprintf(array[count++].qstring, "of");
   sprintf(array[count++].qstring, "your");
+  // 70
+
   sprintf(array[count++].qstring, "youth");
   sprintf(array[count++].qstring, "Oh");
   sprintf(array[count++].qstring, "never");
@@ -121,6 +126,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "understand");
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "power");
+  // 80
+
+  /*
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "beauty");
   sprintf(array[count++].qstring, "of");
@@ -131,6 +139,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "faded");
   sprintf(array[count++].qstring, "But");
   sprintf(array[count++].qstring, "trust");
+
   sprintf(array[count++].qstring, "me");
   sprintf(array[count++].qstring, "in");
   sprintf(array[count++].qstring, "20");
@@ -141,6 +150,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "at");
   sprintf(array[count++].qstring, "photos");
   sprintf(array[count++].qstring, "of");
+
   sprintf(array[count++].qstring, "yourself");
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "recall");
@@ -151,6 +161,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "cant");
   sprintf(array[count++].qstring, "grasp");
   sprintf(array[count++].qstring, "now");
+
   sprintf(array[count++].qstring, "how");
   sprintf(array[count++].qstring, "much");
   sprintf(array[count++].qstring, "possibility");
@@ -161,6 +172,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "how");
   sprintf(array[count++].qstring, "fabulous");
   sprintf(array[count++].qstring, "you");
+
   sprintf(array[count++].qstring, "really");
   sprintf(array[count++].qstring, "looked");
   sprintf(array[count++].qstring, "You");
@@ -171,6 +183,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "as");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "imagine");
+
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "worry");
   sprintf(array[count++].qstring, "about");
@@ -181,6 +194,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "but");
   sprintf(array[count++].qstring, "know");
   sprintf(array[count++].qstring, "that");
+
   sprintf(array[count++].qstring, "worrying");
   sprintf(array[count++].qstring, "is");
   sprintf(array[count++].qstring, "as");
@@ -191,6 +205,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "solve");
   sprintf(array[count++].qstring, "an");
   sprintf(array[count++].qstring, "algebra");
+
   sprintf(array[count++].qstring, "equation");
   sprintf(array[count++].qstring, "by");
   sprintf(array[count++].qstring, "chewing");
@@ -201,6 +216,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "troubles");
   sprintf(array[count++].qstring, "in");
   sprintf(array[count++].qstring, "your");
+
   sprintf(array[count++].qstring, "life");
   sprintf(array[count++].qstring, "are");
   sprintf(array[count++].qstring, "apt");
@@ -211,6 +227,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "never");
   sprintf(array[count++].qstring, "crossed");
   sprintf(array[count++].qstring, "your");
+
   sprintf(array[count++].qstring, "worried");
   sprintf(array[count++].qstring, "mind");
   sprintf(array[count++].qstring, "the");
@@ -221,6 +238,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "at");
   sprintf(array[count++].qstring, "4");
   sprintf(array[count++].qstring, "pm");
+
   sprintf(array[count++].qstring, "on");
   sprintf(array[count++].qstring, "some");
   sprintf(array[count++].qstring, "idle");
@@ -231,6 +249,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "every");
   sprintf(array[count++].qstring, "day");
   sprintf(array[count++].qstring, "that");
+
   sprintf(array[count++].qstring, "scares");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "Sing");
@@ -241,6 +260,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "other");
   sprintf(array[count++].qstring, "peoples");
   sprintf(array[count++].qstring, "hearts");
+
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "put");
   sprintf(array[count++].qstring, "up");
@@ -251,6 +271,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "reckless");
   sprintf(array[count++].qstring, "with");
   sprintf(array[count++].qstring, "yours");
+
   sprintf(array[count++].qstring, "Floss");
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "waste");
@@ -261,6 +282,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Sometimes");
   sprintf(array[count++].qstring, "youre");
   sprintf(array[count++].qstring, "ahead");
+
   sprintf(array[count++].qstring, "sometimes");
   sprintf(array[count++].qstring, "youre");
   sprintf(array[count++].qstring, "behind");
@@ -271,6 +293,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "in");
   sprintf(array[count++].qstring, "the");
+
   sprintf(array[count++].qstring, "end");
   sprintf(array[count++].qstring, "its");
   sprintf(array[count++].qstring, "only");
@@ -281,6 +304,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "receive");
   sprintf(array[count++].qstring, "Forget");
+
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "insults");
   sprintf(array[count++].qstring, "If");
@@ -291,6 +315,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "this");
   sprintf(array[count++].qstring, "tell");
   sprintf(array[count++].qstring, "me");
+
   sprintf(array[count++].qstring, "how");
   sprintf(array[count++].qstring, "Keep");
   sprintf(array[count++].qstring, "your");
@@ -301,6 +326,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "away");
   sprintf(array[count++].qstring, "your");
   sprintf(array[count++].qstring, "old");
+
   sprintf(array[count++].qstring, "bank");
   sprintf(array[count++].qstring, "statements");
   sprintf(array[count++].qstring, "Stretch");
@@ -311,6 +337,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "dont");
   sprintf(array[count++].qstring, "know");
+
   sprintf(array[count++].qstring, "what");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "want");
@@ -321,6 +348,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "life");
   sprintf(array[count++].qstring, "The");
   sprintf(array[count++].qstring, "most");
+
   sprintf(array[count++].qstring, "interesting");
   sprintf(array[count++].qstring, "people");
   sprintf(array[count++].qstring, "I");
@@ -331,6 +359,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "22");
   sprintf(array[count++].qstring, "what");
   sprintf(array[count++].qstring, "they");
+
   sprintf(array[count++].qstring, "wanted");
   sprintf(array[count++].qstring, "to");
   sprintf(array[count++].qstring, "do");
@@ -341,6 +370,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "of");
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "most");
+
   sprintf(array[count++].qstring, "interesting");
   sprintf(array[count++].qstring, "40yearolds");
   sprintf(array[count++].qstring, "I");
@@ -351,6 +381,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "plenty");
   sprintf(array[count++].qstring, "of");
   sprintf(array[count++].qstring, "calcium");
+
   sprintf(array[count++].qstring, "Be");
   sprintf(array[count++].qstring, "kind");
   sprintf(array[count++].qstring, "to");
@@ -361,6 +392,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "them");
   sprintf(array[count++].qstring, "when");
   sprintf(array[count++].qstring, "theyre");
+
   sprintf(array[count++].qstring, "gone");
   sprintf(array[count++].qstring, "Maybe");
   sprintf(array[count++].qstring, "youll");
@@ -371,6 +403,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Maybe");
   sprintf(array[count++].qstring, "youll");
   sprintf(array[count++].qstring, "have");
+
   sprintf(array[count++].qstring, "children");
   sprintf(array[count++].qstring, "maybe");
   sprintf(array[count++].qstring, "you");
@@ -381,6 +414,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "at");
   sprintf(array[count++].qstring, "40");
   sprintf(array[count++].qstring, "maybe");
+
   sprintf(array[count++].qstring, "youll");
   sprintf(array[count++].qstring, "dance");
   sprintf(array[count++].qstring, "the");
@@ -391,6 +425,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "75th");
   sprintf(array[count++].qstring, "wedding");
   sprintf(array[count++].qstring, "anniversary");
+
   sprintf(array[count++].qstring, "Whatever");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "do");
@@ -401,6 +436,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "much");
   sprintf(array[count++].qstring, "or");
   sprintf(array[count++].qstring, "berate");
+
   sprintf(array[count++].qstring, "yourself");
   sprintf(array[count++].qstring, "either");
   sprintf(array[count++].qstring, "Your");
@@ -411,6 +447,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "So");
   sprintf(array[count++].qstring, "are");
   sprintf(array[count++].qstring, "everybody");
+
   sprintf(array[count++].qstring, "elses");
   sprintf(array[count++].qstring, "Enjoy");
   sprintf(array[count++].qstring, "your");
@@ -421,6 +458,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "way");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "can");
+
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "be");
   sprintf(array[count++].qstring, "afraid");
@@ -431,6 +469,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "what");
   sprintf(array[count++].qstring, "other");
   sprintf(array[count++].qstring, "people");
+
   sprintf(array[count++].qstring, "think");
   sprintf(array[count++].qstring, "of");
   sprintf(array[count++].qstring, "it");
@@ -441,6 +480,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "youll");
   sprintf(array[count++].qstring, "ever");
   sprintf(array[count++].qstring, "own");
+
   sprintf(array[count++].qstring, "Dance");
   sprintf(array[count++].qstring, "even");
   sprintf(array[count++].qstring, "if");
@@ -451,6 +491,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "do");
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "but");
+
   sprintf(array[count++].qstring, "your");
   sprintf(array[count++].qstring, "living");
   sprintf(array[count++].qstring, "room");
@@ -461,6 +502,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "if");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "dont");
+
   sprintf(array[count++].qstring, "follow");
   sprintf(array[count++].qstring, "them");
   sprintf(array[count++].qstring, "Do");
@@ -471,6 +513,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "They");
   sprintf(array[count++].qstring, "will");
   sprintf(array[count++].qstring, "only");
+
   sprintf(array[count++].qstring, "make");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "feel");
@@ -481,6 +524,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "your");
   sprintf(array[count++].qstring, "parents");
   sprintf(array[count++].qstring, "You");
+
   sprintf(array[count++].qstring, "never");
   sprintf(array[count++].qstring, "know");
   sprintf(array[count++].qstring, "when");
@@ -491,6 +535,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "good");
   sprintf(array[count++].qstring, "Be");
   sprintf(array[count++].qstring, "nice");
+
   sprintf(array[count++].qstring, "to");
   sprintf(array[count++].qstring, "your");
   sprintf(array[count++].qstring, "siblings");
@@ -501,6 +546,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "to");
   sprintf(array[count++].qstring, "your");
   sprintf(array[count++].qstring, "past");
+
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "people");
@@ -511,6 +557,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "with");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "in");
+
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "future");
   sprintf(array[count++].qstring, "Understand");
@@ -521,6 +568,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "go");
   sprintf(array[count++].qstring, "but");
   sprintf(array[count++].qstring, "with");
+
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "precious");
   sprintf(array[count++].qstring, "few");
@@ -531,6 +579,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Work");
   sprintf(array[count++].qstring, "hard");
   sprintf(array[count++].qstring, "to");
+
   sprintf(array[count++].qstring, "bridge");
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "gaps");
@@ -541,6 +590,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "because");
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "older");
+
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "get");
   sprintf(array[count++].qstring, "the");
@@ -551,6 +601,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "people");
   sprintf(array[count++].qstring, "who");
   sprintf(array[count++].qstring, "knew");
+
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "when");
   sprintf(array[count++].qstring, "you");
@@ -561,6 +612,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "New");
   sprintf(array[count++].qstring, "York");
   sprintf(array[count++].qstring, "City");
+
   sprintf(array[count++].qstring, "once");
   sprintf(array[count++].qstring, "but");
   sprintf(array[count++].qstring, "leave");
@@ -571,6 +623,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "hard");
   sprintf(array[count++].qstring, "Live");
   sprintf(array[count++].qstring, "in");
+
   sprintf(array[count++].qstring, "Northern");
   sprintf(array[count++].qstring, "California");
   sprintf(array[count++].qstring, "once");
@@ -581,6 +634,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "makes");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "soft");
+
   sprintf(array[count++].qstring, "Travel");
   sprintf(array[count++].qstring, "Accept");
   sprintf(array[count++].qstring, "certain");
@@ -591,6 +645,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "rise");
   sprintf(array[count++].qstring, "Politicians");
   sprintf(array[count++].qstring, "will");
+
   sprintf(array[count++].qstring, "philander");
   sprintf(array[count++].qstring, "You");
   sprintf(array[count++].qstring, "too");
@@ -601,6 +656,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "when");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "do");
+
   sprintf(array[count++].qstring, "youll");
   sprintf(array[count++].qstring, "fantasize");
   sprintf(array[count++].qstring, "that");
@@ -611,6 +667,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "prices");
   sprintf(array[count++].qstring, "were");
   sprintf(array[count++].qstring, "reasonable");
+
   sprintf(array[count++].qstring, "politicians");
   sprintf(array[count++].qstring, "were");
   sprintf(array[count++].qstring, "noble");
@@ -621,6 +678,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "elders");
   sprintf(array[count++].qstring, "Respect");
   sprintf(array[count++].qstring, "your");
+
   sprintf(array[count++].qstring, "elders");
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "expect");
@@ -631,6 +689,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "Maybe");
   sprintf(array[count++].qstring, "you");
+
   sprintf(array[count++].qstring, "have");
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "trust");
@@ -641,6 +700,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "wealthy");
   sprintf(array[count++].qstring, "spouse");
+
   sprintf(array[count++].qstring, "But");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "never");
@@ -651,6 +711,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "might");
   sprintf(array[count++].qstring, "run");
   sprintf(array[count++].qstring, "out");
+
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "mess");
   sprintf(array[count++].qstring, "too");
@@ -661,6 +722,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "or");
   sprintf(array[count++].qstring, "by");
   sprintf(array[count++].qstring, "the");
+
   sprintf(array[count++].qstring, "time");
   sprintf(array[count++].qstring, "youre");
   sprintf(array[count++].qstring, "40");
@@ -671,6 +733,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Be");
   sprintf(array[count++].qstring, "careful");
   sprintf(array[count++].qstring, "whose");
+
   sprintf(array[count++].qstring, "advice");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "buy");
@@ -681,6 +744,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "those");
   sprintf(array[count++].qstring, "who");
   sprintf(array[count++].qstring, "supply");
+
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "Advice");
   sprintf(array[count++].qstring, "is");
@@ -691,6 +755,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Dispensing");
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "is");
+
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "way");
   sprintf(array[count++].qstring, "of");
@@ -701,6 +766,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "disposal");
   sprintf(array[count++].qstring, "wiping");
+
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "off");
   sprintf(array[count++].qstring, "painting");
@@ -711,6 +777,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "recycling");
   sprintf(array[count++].qstring, "it");
+
   sprintf(array[count++].qstring, "for");
   sprintf(array[count++].qstring, "more");
   sprintf(array[count++].qstring, "than");
@@ -721,8 +788,10 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "me");
   sprintf(array[count++].qstring, "on");
   sprintf(array[count++].qstring, "the");
+
   sprintf(array[count++].qstring, "sunscreen");
-  
+  */
+
   /*
   array[count++] = "Kurt";
   array[count++] = "Vonneguts";
@@ -10045,8 +10114,6 @@ main(int argc, char *argv[]) {
   array[count++] = "to";
   */
 
-  init_platform();
-
   printf("\nSorting %d elements.\n\n",count);
   qsort(array,count,sizeof(struct myStringStruct),compare);
 
@@ -10054,9 +10121,13 @@ main(int argc, char *argv[]) {
   asm("drseus_start_tag:");
   qsort(array,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
+
+  // So that the output will be captured to detect data corruption
+  for(i=0;i<count;i++) {
+    printf("%s\n", array[i].qstring);
+  }
+
   printf("\nsafeword ");
   
-  for(i=0;i<count;i++)
-    printf("%s\n", array[i].qstring);
   return 0;
 }
