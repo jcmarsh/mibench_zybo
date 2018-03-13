@@ -24,7 +24,7 @@ int compare(const void *elem1, const void *elem2)
 int
 main(int argc, char *argv[]) {
   //struct myStringStruct array[MAXARRAY];
-  struct myStringStruct array[100];
+  struct myStringStruct array[200];
   //FILE *fp;
   int i,count=0;
 
@@ -128,7 +128,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "power");
   // 80
 
-  /*
+  /* */
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "beauty");
   sprintf(array[count++].qstring, "of");
@@ -139,6 +139,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "faded");
   sprintf(array[count++].qstring, "But");
   sprintf(array[count++].qstring, "trust");
+  // 90
 
   sprintf(array[count++].qstring, "me");
   sprintf(array[count++].qstring, "in");
@@ -150,6 +151,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "at");
   sprintf(array[count++].qstring, "photos");
   sprintf(array[count++].qstring, "of");
+  // 100
 
   sprintf(array[count++].qstring, "yourself");
   sprintf(array[count++].qstring, "and");
@@ -161,6 +163,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "cant");
   sprintf(array[count++].qstring, "grasp");
   sprintf(array[count++].qstring, "now");
+  // 110
 
   sprintf(array[count++].qstring, "how");
   sprintf(array[count++].qstring, "much");
@@ -172,7 +175,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "how");
   sprintf(array[count++].qstring, "fabulous");
   sprintf(array[count++].qstring, "you");
+  // 120
 
+  /*
   sprintf(array[count++].qstring, "really");
   sprintf(array[count++].qstring, "looked");
   sprintf(array[count++].qstring, "You");
