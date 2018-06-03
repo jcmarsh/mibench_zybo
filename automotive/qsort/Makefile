@@ -10,12 +10,15 @@ SPEC = -specs=../../zybo_build_common/Xilinx.spec
 LD_SRCS += ../../zybo_build_common/lscript.ld
 
 C_SRCS += ../../zybo_build_common/platform.c \
+../../zybo_build_common/string.c \
 qsort_small.c # qsort_large.c
 
 OBJS += ../../zybo_build_common/platform.o \
+../../zybo_build_common/string.o \
 qsort_small.o
 
 C_DEPS += ../../zybo_build_common/platform.d \
+../../zybo_build_common/string.d \
 qsort_small.d
 
 USER_OBJS :=

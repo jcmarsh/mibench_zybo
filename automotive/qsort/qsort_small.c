@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
+#include <custom_string.h>
 #include <platform.h>
 #include "xuartps.h"
 
