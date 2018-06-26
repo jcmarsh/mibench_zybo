@@ -3,6 +3,7 @@
 
 #include <custom_string.h>
 #include <platform.h>
+#include <xil_cache_l.h>
 #include "xuartps.h"
 
 #define UNLIMIT
@@ -24,7 +25,7 @@ int compare(const void *elem1, const void *elem2)
 int
 main(int argc, char *argv[]) {
   //struct myStringStruct array[MAXARRAY];
-  struct myStringStruct array[200];
+  struct myStringStruct array[256];
   //FILE *fp;
   int i,count=0;
 
@@ -177,7 +178,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   // 120
 
-  /*
+  /* */
   sprintf(array[count++].qstring, "really");
   sprintf(array[count++].qstring, "looked");
   sprintf(array[count++].qstring, "You");
@@ -188,6 +189,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "as");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "imagine");
+  // 130
 
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "worry");
@@ -199,6 +201,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "but");
   sprintf(array[count++].qstring, "know");
   sprintf(array[count++].qstring, "that");
+  // 140
 
   sprintf(array[count++].qstring, "worrying");
   sprintf(array[count++].qstring, "is");
@@ -210,6 +213,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "solve");
   sprintf(array[count++].qstring, "an");
   sprintf(array[count++].qstring, "algebra");
+  // 150
 
   sprintf(array[count++].qstring, "equation");
   sprintf(array[count++].qstring, "by");
@@ -221,6 +225,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "troubles");
   sprintf(array[count++].qstring, "in");
   sprintf(array[count++].qstring, "your");
+  // 160
 
   sprintf(array[count++].qstring, "life");
   sprintf(array[count++].qstring, "are");
@@ -232,6 +237,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "never");
   sprintf(array[count++].qstring, "crossed");
   sprintf(array[count++].qstring, "your");
+  // 170
 
   sprintf(array[count++].qstring, "worried");
   sprintf(array[count++].qstring, "mind");
@@ -243,7 +249,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "at");
   sprintf(array[count++].qstring, "4");
   sprintf(array[count++].qstring, "pm");
+  // 180
 
+  /* */
   sprintf(array[count++].qstring, "on");
   sprintf(array[count++].qstring, "some");
   sprintf(array[count++].qstring, "idle");
@@ -254,6 +262,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "every");
   sprintf(array[count++].qstring, "day");
   sprintf(array[count++].qstring, "that");
+  // 190
 
   sprintf(array[count++].qstring, "scares");
   sprintf(array[count++].qstring, "you");
@@ -265,6 +274,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "other");
   sprintf(array[count++].qstring, "peoples");
   sprintf(array[count++].qstring, "hearts");
+  // 200
 
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "put");
@@ -276,6 +286,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "reckless");
   sprintf(array[count++].qstring, "with");
   sprintf(array[count++].qstring, "yours");
+  // 210
 
   sprintf(array[count++].qstring, "Floss");
   sprintf(array[count++].qstring, "Dont");
@@ -287,6 +298,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Sometimes");
   sprintf(array[count++].qstring, "youre");
   sprintf(array[count++].qstring, "ahead");
+  // 220
 
   sprintf(array[count++].qstring, "sometimes");
   sprintf(array[count++].qstring, "youre");
@@ -298,6 +310,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "in");
   sprintf(array[count++].qstring, "the");
+  // 230
 
   sprintf(array[count++].qstring, "end");
   sprintf(array[count++].qstring, "its");
@@ -309,7 +322,9 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "receive");
   sprintf(array[count++].qstring, "Forget");
+  // 240
 
+  /*
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "insults");
   sprintf(array[count++].qstring, "If");
@@ -10119,10 +10134,13 @@ main(int argc, char *argv[]) {
   array[count++] = "to";
   */
 
-  printf("\nSorting %d elements.\n\n",count);
-  qsort(array,count,sizeof(struct myStringStruct),compare);
+  //printf("\nSorting %d elements.\n\n",count);
+  //qsort(array,count,sizeof(struct myStringStruct),compare);
 
   printf("\nSorting %d elements.\n\n",count);
+  //Xil_L2CacheFlush();
+  //Xil_L1DCacheFlush();
+  //Xil_L2CacheInvalidate();
   asm("drseus_start_tag:");
   qsort(array,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
