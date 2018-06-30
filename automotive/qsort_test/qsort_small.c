@@ -10131,7 +10131,8 @@ main(int argc, char *argv[]) {
   Xil_L1DCacheFlush();
   //Xil_L2CacheInvalidate();
 
-  Xpm_SetEvents(XPM_CNTRCFG1);
+  //Xpm_SetEvents(XPM_CNTRCFG1);
+  Xpm_SetEvents(XPM_CNTRCFGCUST);
   asm("drseus_start_tag:");
   qsort(array,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
