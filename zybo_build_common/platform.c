@@ -48,15 +48,15 @@ init_platform()
   //Xil_L2CacheDisable();
   //print("L1D and L1I Caches ON\n");
 
-  Xil_L1DCacheEnable();
-  Xil_L1ICacheDisable();
-  Xil_L2CacheDisable();
-  print("Only L1D Cache\n");
-
-  //Xil_L1DCacheDisable();
+  //Xil_L1DCacheEnable();
   //Xil_L1ICacheDisable();
-  //Xil_L2CacheEnable(); // Disable if messing with L2CC!!!!
-  //print("Only L2 Cache\n");
+  //Xil_L2CacheDisable();
+  //print("Only L1D Cache\n");
+
+  Xil_L1DCacheDisable();
+  Xil_L1ICacheDisable();
+  Xil_L2CacheEnable(); // Disable if messing with L2CC!!!!
+  print("Only L2 Cache\n");
 
   //Xil_L2CacheDisable();
   //Xil_L1DCacheDisable();
