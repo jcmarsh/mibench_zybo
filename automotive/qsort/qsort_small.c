@@ -26,6 +26,7 @@ int
 main(int argc, char *argv[]) {
   //struct myStringStruct array[MAXARRAY];
   struct myStringStruct array[256];
+  struct myStringStruct array2[256];
   //FILE *fp;
   int i,count=0;
 
@@ -10134,15 +10135,16 @@ main(int argc, char *argv[]) {
   array[count++] = "to";
   */
 
-  //printf("\nSorting %d elements.\n\n",count);
-  //qsort(array,count,sizeof(struct myStringStruct),compare);
+  memcpy(array2, array, sizeof(array));
+  printf("\nSorting %d elements.\n\n",count);
+  qsort(array,count,sizeof(struct myStringStruct),compare);
 
   printf("\nSorting %d elements.\n\n",count);
   //Xil_L2CacheFlush();
   //Xil_L1DCacheFlush();
   //Xil_L2CacheInvalidate();
   asm("drseus_start_tag:");
-  qsort(array,count,sizeof(struct myStringStruct),compare);
+  qsort(array2,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
 
   // So that the output will be captured to detect data corruption
