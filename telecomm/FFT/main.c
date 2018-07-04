@@ -160,8 +160,11 @@ int main(int argc, char *argv[]) {
 	// MAXSIZE= 4096; // atoi(argv[2]);
 	// MAXWAVES= 4; //atoi(argv[1]);
 
-        MAXSIZE=512;
-        MAXWAVES=4;
+        MAXSIZE= 2048; // atoi(argv[2]);
+        MAXWAVES= 4; //atoi(argv[1]);
+
+        // MAXSIZE=512;
+        // MAXWAVES=4;
 
 	//MAXSIZE= 64; // atoi(argv[2]);
 	//MAXWAVES= 2; //atoi(argv[1]);
