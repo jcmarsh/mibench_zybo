@@ -10140,9 +10140,9 @@ main(int argc, char *argv[]) {
   qsort(array,count,sizeof(struct myStringStruct),compare);
 
   printf("\nSorting %d elements.\n\n",count);
+
   //Xil_L2CacheFlush();
-  //Xil_L1DCacheFlush();
-  //Xil_L2CacheInvalidate();
+
   asm("drseus_start_tag:");
   qsort(array2,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
