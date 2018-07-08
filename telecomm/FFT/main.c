@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include "xuartps.h"
 
+#include <xil_cache_l.h>
+
 void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 	unsigned i,j;
 	float *RealIn;
@@ -51,16 +53,17 @@ void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 
  /* regular*/
  fft_float (MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut);
- 
+
  printf("RealOut:\n");
- for (i=0;i<MAXSIZE;i++)
-   printf("%f \t", RealOut[i]);
+ for (i=0;i<(MAXSIZE / 4);i++)
+   // MAXSIZE better be a multiple of 4! (likely a power of 2, so should be fine)
+   printf("%f\t%f\t%f\t%f\n", RealOut[i], RealOut[i + 1], RealOut[i + 2], RealOut[i + 3]);
  printf("\n");
 
-printf("ImagOut:\n");
- for (i=0;i<MAXSIZE;i++)
-   printf("%f \t", ImagOut[i]);
-   printf("\n");
+ printf("ImagOut:\n");
+ for (i=0;i<(MAXSIZE / 4);i++)
+   printf("%f\t%f\t%f\t%f\n", ImagOut[i], ImagOut[i + 1], ImagOut[i + 2], ImagOut[i + 3]);
+ printf("\n");
 
  free(RealIn);
  free(ImagIn);
@@ -115,20 +118,24 @@ void run_fft_tagged(unsigned MAXWAVES, unsigned MAXSIZE) {
 	 }
  }
 
+ // Xil_L2CacheInvalidate();
+ // Xil_L2CacheFlush();
+
  asm("drseus_start_tag:");
  /* regular*/
  fft_float (MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut);
  asm("drseus_end_tag:");
  
  printf("RealOut:\n");
- for (i=0;i<MAXSIZE;i++)
-   printf("%f \t", RealOut[i]);
+ for (i=0;i<(MAXSIZE / 4);i++)
+   // MAXSIZE better be a multiple of 4! (likely a power of 2, so should be fine)
+   printf("%f\t%f\t%f\t%f\n", RealOut[i], RealOut[i + 1], RealOut[i + 2], RealOut[i + 3]);
  printf("\n");
 
-printf("ImagOut:\n");
- for (i=0;i<MAXSIZE;i++)
-   printf("%f \t", ImagOut[i]);
-   printf("\n");
+ printf("ImagOut:\n");
+ for (i=0;i<(MAXSIZE /4);i++)
+   printf("%f\t%f\t%f\t%f\n", ImagOut[i], ImagOut[i + 1], ImagOut[i + 2], ImagOut[i + 3]);
+ printf("\n");
 
  free(RealIn);
  free(ImagIn);
