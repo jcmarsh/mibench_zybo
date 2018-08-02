@@ -10152,6 +10152,8 @@ main(int argc, char *argv[]) {
     printf("%s\n", array[i].qstring);
   }
 
+  exit_platform();
+
   printf("\nsafeword ");
   
   return 0;

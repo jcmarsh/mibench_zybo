@@ -118,8 +118,8 @@ void run_fft_tagged(unsigned MAXWAVES, unsigned MAXSIZE) {
 	 }
  }
 
- // Xil_L2CacheInvalidate();
- // Xil_L2CacheFlush();
+ //Xil_L2CacheInvalidate();
+ //Xil_L2CacheFlush();
 
  asm("drseus_start_tag:");
  /* regular*/
@@ -183,6 +183,8 @@ int main(int argc, char *argv[]) {
 	run_fft(MAXWAVES, MAXSIZE);
 
 	run_fft_tagged(MAXWAVES, MAXSIZE);
+
+        exit_platform();
 
         printf("\nsafeword ");
 
