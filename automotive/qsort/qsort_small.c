@@ -10135,16 +10135,17 @@ main(int argc, char *argv[]) {
   array[count++] = "to";
   */
 
+  // Run once for to warm caches up if desired
+  /*
   memcpy(array2, array, sizeof(array));
   printf("\nSorting %d elements.\n\n",count);
-  qsort(array,count,sizeof(struct myStringStruct),compare);
+  qsort(array2,count,sizeof(struct myStringStruct),compare);
+  */
 
   printf("\nSorting %d elements.\n\n",count);
-
-  //Xil_L2CacheFlush();
-
+  Xil_L2CacheFlush();
   asm("drseus_start_tag:");
-  qsort(array2,count,sizeof(struct myStringStruct),compare);
+  qsort(array,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
 
   // So that the output will be captured to detect data corruption

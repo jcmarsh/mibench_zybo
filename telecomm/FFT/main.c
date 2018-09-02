@@ -118,7 +118,7 @@ void run_fft_tagged(unsigned MAXWAVES, unsigned MAXSIZE) {
 	 }
  }
 
- // Xil_L2CacheFlush();
+ Xil_L2CacheFlush();
 
  asm("drseus_start_tag:");
  /* regular*/
@@ -172,14 +172,15 @@ int main(int argc, char *argv[]) {
         // MAXSIZE=512;
         // MAXWAVES=4;
 
-	//MAXSIZE= 64; // atoi(argv[2]);
-	//MAXWAVES= 2; //atoi(argv[1]);
+	// MAXSIZE= 64; // atoi(argv[2]);
+	// MAXWAVES= 2; //atoi(argv[1]);
 
         init_platform();
 
 	printf("Starting FFT with %d %d\n", MAXWAVES, MAXSIZE);
 
-	run_fft(MAXWAVES, MAXSIZE);
+	// Run if cache warmup desired
+	//run_fft(MAXWAVES, MAXSIZE);
 
 	run_fft_tagged(MAXWAVES, MAXSIZE);
 
