@@ -85,8 +85,17 @@ init_platform()
   L2CCReg = L2CCReg | XPS_L2CC_AUX_CRP_MASK;
   // Disable parity
   L2CCReg = L2CCReg & (~(XPS_L2CC_AUX_IPFE_MASK | XPS_L2CC_AUX_PE_MASK));
+  // Force Write-Allocate
+  L2CCReg = L2CCReg | XPS_L2CC_AUX_FWE_MASK;
   // Write back out
   Xil_Out32(XPS_L2CC_BASEADDR + XPS_L2CC_AUX_CNTRL_OFFSET, L2CCReg);
+
+  // Force write-through but allow line-fills
+  L2CCReg = Xil_In32(XPS_L2CC_BASEADDR + XPS_L2CC_DEBUG_CTRL_OFFSET);
+  printf("XPS_L2CC_DEBUG_CNTRL: 0x%08lX\n", L2CCReg);
+  // Disable Write Back (DWB) forces write-through
+  L2CCReg = L2CCReg | XPS_L2CC_DEBUG_DWB_MASK;
+  Xil_Out32(XPS_L2CC_BASEADDR + XPS_L2CC_DEBUG_CTRL_OFFSET, L2CCReg);
 
   L2CCReg = Xil_In32(XPS_L2CC_BASEADDR + 0x0F60);
   printf("XPS_L2CC_PREFETCH_CNTRL: 0x%08lX\n", L2CCReg);
@@ -129,6 +138,9 @@ init_platform()
 
   L2CCReg = Xil_In32(XPS_L2CC_BASEADDR + 0x0F60);
   printf("XPS_L2CC_PREFETCH_CNTRL: 0x%08lX\n", L2CCReg);
+
+  L2CCReg = Xil_In32(XPS_L2CC_BASEADDR + XPS_L2CC_DEBUG_CTRL_OFFSET);
+  printf("XPS_L2CC_DEBUG_CTRL_OFFSET: 0x%08lX\n", L2CCReg);
 
   //Xil_L2CacheDisable();
   //Xil_L1DCacheDisable();
