@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-#include <custom_string.h>
-#include <platform.h>
-#include <xil_cache_l.h>
-#include "xuartps.h"
+#include <string.h>
 
 #define UNLIMIT
 #define MAXARRAY 60000 /* this number, if too large, will cause a seg. fault!! */
@@ -30,7 +26,7 @@ main(int argc, char *argv[]) {
   //FILE *fp;
   int i,count=0;
 
-  init_platform();
+  //init_platform();
 
   sprintf(array[count++].qstring, "Kurt");
   sprintf(array[count++].qstring, "Vonneguts");
@@ -10169,17 +10165,17 @@ main(int argc, char *argv[]) {
   */
 
   printf("\nSorting %d elements.\n\n",count);
-  Xil_L2CacheFlush();
-  asm("drseus_start_tag:");
+  //Xil_L2CacheFlush();
+  //asm("drseus_start_tag:");
   qsort(array,count,sizeof(struct myStringStruct),compare);
-  asm("drseus_end_tag:");
+  //asm("drseus_end_tag:");
 
   // So that the output will be captured to detect data corruption
   for(i=0;i<count;i++) {
     printf("%s\n", array[i].qstring);
   }
 
-  exit_platform();
+  //exit_platform();
 
   printf("\nsafeword ");
   
