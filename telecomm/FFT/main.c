@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <platform.h>
 #include <unistd.h>
-#include "xuartps.h"
-
-#include <xil_cache_l.h>
 
 void run_fft(unsigned MAXWAVES, unsigned MAXSIZE) {
 	unsigned i,j;
@@ -118,7 +114,7 @@ void run_fft_tagged(unsigned MAXWAVES, unsigned MAXSIZE) {
 	 }
  }
 
- Xil_L2CacheFlush();
+ // Xil_L2CacheFlush();
 
  asm("drseus_start_tag:");
  /* regular*/
@@ -175,7 +171,7 @@ int main(int argc, char *argv[]) {
 	// MAXSIZE= 64; // atoi(argv[2]);
 	// MAXWAVES= 2; //atoi(argv[1]);
 
-        init_platform();
+        // init_platform();
 
 	printf("Starting FFT with %d %d\n", MAXWAVES, MAXSIZE);
 
@@ -184,7 +180,7 @@ int main(int argc, char *argv[]) {
 
 	run_fft_tagged(MAXWAVES, MAXSIZE);
 
-        exit_platform();
+        // exit_platform();
 
         printf("\nsafeword ");
 
