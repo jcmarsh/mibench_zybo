@@ -25,7 +25,7 @@ int compare(const void *elem1, const void *elem2)
 int
 main(int argc, char *argv[]) {
   //struct myStringStruct array[MAXARRAY];
-  struct myStringStruct array[512];
+  struct myStringStruct array[1024];
   //struct myStringStruct array2[256];
   //FILE *fp;
   int i,count=0;
@@ -637,7 +637,6 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "older");
   // 500
 
-  /*
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "get");
   sprintf(array[count++].qstring, "the");
@@ -648,6 +647,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "people");
   sprintf(array[count++].qstring, "who");
   sprintf(array[count++].qstring, "knew");
+  // 510
 
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "when");
@@ -659,6 +659,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "New");
   sprintf(array[count++].qstring, "York");
   sprintf(array[count++].qstring, "City");
+  // 520
 
   sprintf(array[count++].qstring, "once");
   sprintf(array[count++].qstring, "but");
@@ -670,6 +671,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "hard");
   sprintf(array[count++].qstring, "Live");
   sprintf(array[count++].qstring, "in");
+  // 530
 
   sprintf(array[count++].qstring, "Northern");
   sprintf(array[count++].qstring, "California");
@@ -681,6 +683,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "makes");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "soft");
+  // 540
 
   sprintf(array[count++].qstring, "Travel");
   sprintf(array[count++].qstring, "Accept");
@@ -692,6 +695,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "rise");
   sprintf(array[count++].qstring, "Politicians");
   sprintf(array[count++].qstring, "will");
+  // 550
 
   sprintf(array[count++].qstring, "philander");
   sprintf(array[count++].qstring, "You");
@@ -703,6 +707,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "when");
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "do");
+  // 560
 
   sprintf(array[count++].qstring, "youll");
   sprintf(array[count++].qstring, "fantasize");
@@ -714,6 +719,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "prices");
   sprintf(array[count++].qstring, "were");
   sprintf(array[count++].qstring, "reasonable");
+  // 570
 
   sprintf(array[count++].qstring, "politicians");
   sprintf(array[count++].qstring, "were");
@@ -725,6 +731,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "elders");
   sprintf(array[count++].qstring, "Respect");
   sprintf(array[count++].qstring, "your");
+  // 580
 
   sprintf(array[count++].qstring, "elders");
   sprintf(array[count++].qstring, "Dont");
@@ -736,6 +743,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "Maybe");
   sprintf(array[count++].qstring, "you");
+  // 590
 
   sprintf(array[count++].qstring, "have");
   sprintf(array[count++].qstring, "a");
@@ -747,6 +755,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "wealthy");
   sprintf(array[count++].qstring, "spouse");
+  // 600
 
   sprintf(array[count++].qstring, "But");
   sprintf(array[count++].qstring, "you");
@@ -758,6 +767,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "might");
   sprintf(array[count++].qstring, "run");
   sprintf(array[count++].qstring, "out");
+  // 610
 
   sprintf(array[count++].qstring, "Dont");
   sprintf(array[count++].qstring, "mess");
@@ -769,6 +779,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "or");
   sprintf(array[count++].qstring, "by");
   sprintf(array[count++].qstring, "the");
+  // 620
 
   sprintf(array[count++].qstring, "time");
   sprintf(array[count++].qstring, "youre");
@@ -780,6 +791,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Be");
   sprintf(array[count++].qstring, "careful");
   sprintf(array[count++].qstring, "whose");
+  // 630
 
   sprintf(array[count++].qstring, "advice");
   sprintf(array[count++].qstring, "you");
@@ -791,6 +803,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "those");
   sprintf(array[count++].qstring, "who");
   sprintf(array[count++].qstring, "supply");
+  // 640
 
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "Advice");
@@ -802,6 +815,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "Dispensing");
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "is");
+  // 650
 
   sprintf(array[count++].qstring, "a");
   sprintf(array[count++].qstring, "way");
@@ -813,6 +827,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "the");
   sprintf(array[count++].qstring, "disposal");
   sprintf(array[count++].qstring, "wiping");
+  // 660
 
   sprintf(array[count++].qstring, "it");
   sprintf(array[count++].qstring, "off");
@@ -824,6 +839,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "and");
   sprintf(array[count++].qstring, "recycling");
   sprintf(array[count++].qstring, "it");
+  // 670
 
   sprintf(array[count++].qstring, "for");
   sprintf(array[count++].qstring, "more");
@@ -835,333 +851,397 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "me");
   sprintf(array[count++].qstring, "on");
   sprintf(array[count++].qstring, "the");
+  // 680
 
   sprintf(array[count++].qstring, "sunscreen");
-  */
+  sprintf(array[count++].qstring, "Kurt");
+  sprintf(array[count++].qstring, "Vonneguts");
+  sprintf(array[count++].qstring, "Commencement");
+  sprintf(array[count++].qstring, "Address");
+  sprintf(array[count++].qstring, "at");
+  sprintf(array[count++].qstring, "MIT");
+  sprintf(array[count++].qstring, "Ladies");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "gentlemen");
+  // 690
+
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "class");
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "97");
+  sprintf(array[count++].qstring, "Wear");
+  sprintf(array[count++].qstring, "sunscreen");
+  sprintf(array[count++].qstring, "If");
+  sprintf(array[count++].qstring, "I");
+  sprintf(array[count++].qstring, "could");
+  // 700
+
+  sprintf(array[count++].qstring, "offer");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "only");
+  sprintf(array[count++].qstring, "one");
+  sprintf(array[count++].qstring, "tip");
+  sprintf(array[count++].qstring, "for");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "future");
+  sprintf(array[count++].qstring, "sunscreen");
+  sprintf(array[count++].qstring, "would");
+  // 710
+
+  sprintf(array[count++].qstring, "be");
+  sprintf(array[count++].qstring, "it");
+  sprintf(array[count++].qstring, "The");
+  sprintf(array[count++].qstring, "longterm");
+  sprintf(array[count++].qstring, "benefits");
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "sunscreen");
+  sprintf(array[count++].qstring, "have");
+  sprintf(array[count++].qstring, "been");
+  sprintf(array[count++].qstring, "proved");
+  // 720
+
+  sprintf(array[count++].qstring, "by");
+  sprintf(array[count++].qstring, "scientists");
+  sprintf(array[count++].qstring, "whereas");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "rest");
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "my");
+  sprintf(array[count++].qstring, "advice");
+  sprintf(array[count++].qstring, "has");
+  sprintf(array[count++].qstring, "no");
+  // 730
+
+  sprintf(array[count++].qstring, "basis");
+  sprintf(array[count++].qstring, "more");
+  sprintf(array[count++].qstring, "reliable");
+  sprintf(array[count++].qstring, "than");
+  sprintf(array[count++].qstring, "my");
+  sprintf(array[count++].qstring, "own");
+  sprintf(array[count++].qstring, "meandering");
+  sprintf(array[count++].qstring, "experience");
+  sprintf(array[count++].qstring, "I");
+  sprintf(array[count++].qstring, "will");
+  // 740
+
+  sprintf(array[count++].qstring, "dispense");
+  sprintf(array[count++].qstring, "this");
+  sprintf(array[count++].qstring, "advice");
+  sprintf(array[count++].qstring, "now");
+  sprintf(array[count++].qstring, "Enjoy");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "power");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "beauty");
+  sprintf(array[count++].qstring, "of");
+  // 750
+
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "youth");
+  sprintf(array[count++].qstring, "Oh");
+  sprintf(array[count++].qstring, "never");
+  sprintf(array[count++].qstring, "mind");
+  sprintf(array[count++].qstring, "You");
+  sprintf(array[count++].qstring, "will");
+  sprintf(array[count++].qstring, "not");
+  sprintf(array[count++].qstring, "understand");
+  sprintf(array[count++].qstring, "the");
+  // 760
+
+  sprintf(array[count++].qstring, "power");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "beauty");
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "youth");
+  sprintf(array[count++].qstring, "until");
+  sprintf(array[count++].qstring, "theyve");
+  sprintf(array[count++].qstring, "faded");
+  sprintf(array[count++].qstring, "But");
+  // 770
+
+  sprintf(array[count++].qstring, "trust");
+  sprintf(array[count++].qstring, "me");
+  sprintf(array[count++].qstring, "in");
+  sprintf(array[count++].qstring, "20");
+  sprintf(array[count++].qstring, "years");
+  sprintf(array[count++].qstring, "youll");
+  sprintf(array[count++].qstring, "look");
+  sprintf(array[count++].qstring, "back");
+  sprintf(array[count++].qstring, "at");
+  sprintf(array[count++].qstring, "photos");
+  // 780
+
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "yourself");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "recall");
+  sprintf(array[count++].qstring, "in");
+  sprintf(array[count++].qstring, "a");
+  sprintf(array[count++].qstring, "way");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "cant");
+  sprintf(array[count++].qstring, "grasp");
+  // 790
+
+  sprintf(array[count++].qstring, "now");
+  sprintf(array[count++].qstring, "how");
+  sprintf(array[count++].qstring, "much");
+  sprintf(array[count++].qstring, "possibility");
+  sprintf(array[count++].qstring, "lay");
+  sprintf(array[count++].qstring, "before");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "how");
+  sprintf(array[count++].qstring, "fabulous");
+  // 800
+
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "really");
+  sprintf(array[count++].qstring, "looked");
+  sprintf(array[count++].qstring, "You");
+  sprintf(array[count++].qstring, "are");
+  sprintf(array[count++].qstring, "not");
+  sprintf(array[count++].qstring, "as");
+  sprintf(array[count++].qstring, "fat");
+  sprintf(array[count++].qstring, "as");
+  sprintf(array[count++].qstring, "you");
+  // 810
+
+  sprintf(array[count++].qstring, "imagine");
+  sprintf(array[count++].qstring, "Dont");
+  sprintf(array[count++].qstring, "worry");
+  sprintf(array[count++].qstring, "about");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "future");
+  sprintf(array[count++].qstring, "Or");
+  sprintf(array[count++].qstring, "worry");
+  sprintf(array[count++].qstring, "but");
+  sprintf(array[count++].qstring, "know");
+  // 820
+
+  sprintf(array[count++].qstring, "that");
+  sprintf(array[count++].qstring, "worrying");
+  sprintf(array[count++].qstring, "is");
+  sprintf(array[count++].qstring, "as");
+  sprintf(array[count++].qstring, "effective");
+  sprintf(array[count++].qstring, "as");
+  sprintf(array[count++].qstring, "trying");
+  sprintf(array[count++].qstring, "to");
+  sprintf(array[count++].qstring, "solve");
+  sprintf(array[count++].qstring, "an");
+  // 830
+
+  sprintf(array[count++].qstring, "algebra");
+  sprintf(array[count++].qstring, "equation");
+  sprintf(array[count++].qstring, "by");
+  sprintf(array[count++].qstring, "chewing");
+  sprintf(array[count++].qstring, "bubble");
+  sprintf(array[count++].qstring, "gum");
+  sprintf(array[count++].qstring, "The");
+  sprintf(array[count++].qstring, "real");
+  sprintf(array[count++].qstring, "troubles");
+  sprintf(array[count++].qstring, "in");
+  // 840
+
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "life");
+  sprintf(array[count++].qstring, "are");
+  sprintf(array[count++].qstring, "apt");
+  sprintf(array[count++].qstring, "to");
+  sprintf(array[count++].qstring, "be");
+  sprintf(array[count++].qstring, "things");
+  sprintf(array[count++].qstring, "that");
+  sprintf(array[count++].qstring, "never");
+  sprintf(array[count++].qstring, "crossed");
+  // 850
+
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "worried");
+  sprintf(array[count++].qstring, "mind");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "kind");
+  sprintf(array[count++].qstring, "that");
+  sprintf(array[count++].qstring, "blindside");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "at");
+  sprintf(array[count++].qstring, "4");
+  // 860
+
+  sprintf(array[count++].qstring, "pm");
+  sprintf(array[count++].qstring, "on");
+  sprintf(array[count++].qstring, "some");
+  sprintf(array[count++].qstring, "idle");
+  sprintf(array[count++].qstring, "Tuesday");
+  sprintf(array[count++].qstring, "Do");
+  sprintf(array[count++].qstring, "one");
+  sprintf(array[count++].qstring, "thing");
+  sprintf(array[count++].qstring, "every");
+  sprintf(array[count++].qstring, "day");
+  // 870
+
+  sprintf(array[count++].qstring, "that");
+  sprintf(array[count++].qstring, "scares");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "Sing");
+  sprintf(array[count++].qstring, "Dont");
+  sprintf(array[count++].qstring, "be");
+  sprintf(array[count++].qstring, "reckless");
+  sprintf(array[count++].qstring, "with");
+  sprintf(array[count++].qstring, "other");
+  sprintf(array[count++].qstring, "peoples");
+  // 880
+
+  sprintf(array[count++].qstring, "hearts");
+  sprintf(array[count++].qstring, "Dont");
+  sprintf(array[count++].qstring, "put");
+  sprintf(array[count++].qstring, "up");
+  sprintf(array[count++].qstring, "with");
+  sprintf(array[count++].qstring, "people");
+  sprintf(array[count++].qstring, "who");
+  sprintf(array[count++].qstring, "are");
+  sprintf(array[count++].qstring, "reckless");
+  sprintf(array[count++].qstring, "with");
+  // 890
+
+  sprintf(array[count++].qstring, "yours");
+  sprintf(array[count++].qstring, "Floss");
+  sprintf(array[count++].qstring, "Dont");
+  sprintf(array[count++].qstring, "waste");
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "time");
+  sprintf(array[count++].qstring, "on");
+  sprintf(array[count++].qstring, "jealousy");
+  sprintf(array[count++].qstring, "Sometimes");
+  sprintf(array[count++].qstring, "youre");
+  // 900
+
+  sprintf(array[count++].qstring, "ahead");
+  sprintf(array[count++].qstring, "sometimes");
+  sprintf(array[count++].qstring, "youre");
+  sprintf(array[count++].qstring, "behind");
+  sprintf(array[count++].qstring, "The");
+  sprintf(array[count++].qstring, "race");
+  sprintf(array[count++].qstring, "is");
+  sprintf(array[count++].qstring, "long");
+  sprintf(array[count++].qstring, "and");
+  sprintf(array[count++].qstring, "in");
+  // 910
+
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "end");
+  sprintf(array[count++].qstring, "its");
+  sprintf(array[count++].qstring, "only");
+  sprintf(array[count++].qstring, "with");
+  sprintf(array[count++].qstring, "yourself");
+  sprintf(array[count++].qstring, "Remember");
+  sprintf(array[count++].qstring, "compliments");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "receive");
+  // 920
+
+  sprintf(array[count++].qstring, "Forget");
+  sprintf(array[count++].qstring, "the");
+  sprintf(array[count++].qstring, "insults");
+  sprintf(array[count++].qstring, "If");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "succeed");
+  sprintf(array[count++].qstring, "in");
+  sprintf(array[count++].qstring, "doing");
+  sprintf(array[count++].qstring, "this");
+  sprintf(array[count++].qstring, "tell");
+  // 930
+
+  sprintf(array[count++].qstring, "me");
+  sprintf(array[count++].qstring, "how");
+  sprintf(array[count++].qstring, "Keep");
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "old");
+  sprintf(array[count++].qstring, "love");
+  sprintf(array[count++].qstring, "letters");
+  sprintf(array[count++].qstring, "Throw");
+  sprintf(array[count++].qstring, "away");
+  sprintf(array[count++].qstring, "your");
+  // 940
+
+  sprintf(array[count++].qstring, "old");
+  sprintf(array[count++].qstring, "bank");
+  sprintf(array[count++].qstring, "statements");
+  sprintf(array[count++].qstring, "Stretch");
+  sprintf(array[count++].qstring, "Dont");
+  sprintf(array[count++].qstring, "feel");
+  sprintf(array[count++].qstring, "guilty");
+  sprintf(array[count++].qstring, "if");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "dont");
+  // 950
+
+  sprintf(array[count++].qstring, "know");
+  sprintf(array[count++].qstring, "what");
+  sprintf(array[count++].qstring, "you");
+  sprintf(array[count++].qstring, "want");
+  sprintf(array[count++].qstring, "to");
+  sprintf(array[count++].qstring, "do");
+  sprintf(array[count++].qstring, "with");
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "life");
+  sprintf(array[count++].qstring, "The");
+  // 960
+
+  sprintf(array[count++].qstring, "most");
+  sprintf(array[count++].qstring, "interesting");
+  sprintf(array[count++].qstring, "people");
+  sprintf(array[count++].qstring, "I");
+  sprintf(array[count++].qstring, "know");
+  sprintf(array[count++].qstring, "didnt");
+  sprintf(array[count++].qstring, "know");
+  sprintf(array[count++].qstring, "at");
+  sprintf(array[count++].qstring, "22");
+  sprintf(array[count++].qstring, "what");
+  // 970
+
+  sprintf(array[count++].qstring, "they");
+  sprintf(array[count++].qstring, "wanted");
+  sprintf(array[count++].qstring, "to");
+  sprintf(array[count++].qstring, "do");
+  sprintf(array[count++].qstring, "with");
+  sprintf(array[count++].qstring, "their");
+  sprintf(array[count++].qstring, "lives");
+  sprintf(array[count++].qstring, "Some");
+  sprintf(array[count++].qstring, "of");
+  sprintf(array[count++].qstring, "the");
+  // 980
+
+  sprintf(array[count++].qstring, "most");
+  sprintf(array[count++].qstring, "interesting");
+  sprintf(array[count++].qstring, "40yearolds");
+  sprintf(array[count++].qstring, "I");
+  sprintf(array[count++].qstring, "know");
+  sprintf(array[count++].qstring, "still");
+  sprintf(array[count++].qstring, "dont");
+  sprintf(array[count++].qstring, "Get");
+  sprintf(array[count++].qstring, "plenty");
+  sprintf(array[count++].qstring, "of");
+  // 990
+
+  sprintf(array[count++].qstring, "calcium");
+  sprintf(array[count++].qstring, "Be");
+  sprintf(array[count++].qstring, "kind");
+  sprintf(array[count++].qstring, "to");
+  sprintf(array[count++].qstring, "your");
+  sprintf(array[count++].qstring, "knees");
+  sprintf(array[count++].qstring, "Youll");
+  sprintf(array[count++].qstring, "miss");
+  sprintf(array[count++].qstring, "them");
+  sprintf(array[count++].qstring, "when");
+  // 1000
 
   /*
-  array[count++] = "Kurt";
-  array[count++] = "Vonneguts";
-  array[count++] = "Commencement";
-  array[count++] = "Address";
-  array[count++] = "at";
-  array[count++] = "MIT";
-  array[count++] = "Ladies";
-  array[count++] = "and";
-  array[count++] = "gentlemen";
-  array[count++] = "of";
-  array[count++] = "the";
-  array[count++] = "class";
-  array[count++] = "of";
-  array[count++] = "97";
-  array[count++] = "Wear";
-  array[count++] = "sunscreen";
-  array[count++] = "If";
-  array[count++] = "I";
-  array[count++] = "could";
-  array[count++] = "offer";
-  array[count++] = "you";
-  array[count++] = "only";
-  array[count++] = "one";
-  array[count++] = "tip";
-  array[count++] = "for";
-  array[count++] = "the";
-  array[count++] = "future";
-  array[count++] = "sunscreen";
-  array[count++] = "would";
-  array[count++] = "be";
-  array[count++] = "it";
-  array[count++] = "The";
-  array[count++] = "longterm";
-  array[count++] = "benefits";
-  array[count++] = "of";
-  array[count++] = "sunscreen";
-  array[count++] = "have";
-  array[count++] = "been";
-  array[count++] = "proved";
-  array[count++] = "by";
-  array[count++] = "scientists";
-  array[count++] = "whereas";
-  array[count++] = "the";
-  array[count++] = "rest";
-  array[count++] = "of";
-  array[count++] = "my";
-  array[count++] = "advice";
-  array[count++] = "has";
-  array[count++] = "no";
-  array[count++] = "basis";
-  array[count++] = "more";
-  array[count++] = "reliable";
-  array[count++] = "than";
-  array[count++] = "my";
-  array[count++] = "own";
-  array[count++] = "meandering";
-  array[count++] = "experience";
-  array[count++] = "I";
-  array[count++] = "will";
-  array[count++] = "dispense";
-  array[count++] = "this";
-  array[count++] = "advice";
-  array[count++] = "now";
-  array[count++] = "Enjoy";
-  array[count++] = "the";
-  array[count++] = "power";
-  array[count++] = "and";
-  array[count++] = "beauty";
-  array[count++] = "of";
-  array[count++] = "your";
-  array[count++] = "youth";
-  array[count++] = "Oh";
-  array[count++] = "never";
-  array[count++] = "mind";
-  array[count++] = "You";
-  array[count++] = "will";
-  array[count++] = "not";
-  array[count++] = "understand";
-  array[count++] = "the";
-  array[count++] = "power";
-  array[count++] = "and";
-  array[count++] = "beauty";
-  array[count++] = "of";
-  array[count++] = "your";
-  array[count++] = "youth";
-  array[count++] = "until";
-  array[count++] = "theyve";
-  array[count++] = "faded";
-  array[count++] = "But";
-  array[count++] = "trust";
-  array[count++] = "me";
-  array[count++] = "in";
-  array[count++] = "20";
-  array[count++] = "years";
-  array[count++] = "youll";
-  array[count++] = "look";
-  array[count++] = "back";
-  array[count++] = "at";
-  array[count++] = "photos";
-  array[count++] = "of";
-  array[count++] = "yourself";
-  array[count++] = "and";
-  array[count++] = "recall";
-  array[count++] = "in";
-  array[count++] = "a";
-  array[count++] = "way";
-  array[count++] = "you";
-  array[count++] = "cant";
-  array[count++] = "grasp";
-  array[count++] = "now";
-  array[count++] = "how";
-  array[count++] = "much";
-  array[count++] = "possibility";
-  array[count++] = "lay";
-  array[count++] = "before";
-  array[count++] = "you";
-  array[count++] = "and";
-  array[count++] = "how";
-  array[count++] = "fabulous";
-  array[count++] = "you";
-  array[count++] = "really";
-  array[count++] = "looked";
-  array[count++] = "You";
-  array[count++] = "are";
-  array[count++] = "not";
-  array[count++] = "as";
-  array[count++] = "fat";
-  array[count++] = "as";
-  array[count++] = "you";
-  array[count++] = "imagine";
-  array[count++] = "Dont";
-  array[count++] = "worry";
-  array[count++] = "about";
-  array[count++] = "the";
-  array[count++] = "future";
-  array[count++] = "Or";
-  array[count++] = "worry";
-  array[count++] = "but";
-  array[count++] = "know";
-  array[count++] = "that";
-  array[count++] = "worrying";
-  array[count++] = "is";
-  array[count++] = "as";
-  array[count++] = "effective";
-  array[count++] = "as";
-  array[count++] = "trying";
-  array[count++] = "to";
-  array[count++] = "solve";
-  array[count++] = "an";
-  array[count++] = "algebra";
-  array[count++] = "equation";
-  array[count++] = "by";
-  array[count++] = "chewing";
-  array[count++] = "bubble";
-  array[count++] = "gum";
-  array[count++] = "The";
-  array[count++] = "real";
-  array[count++] = "troubles";
-  array[count++] = "in";
-  array[count++] = "your";
-  array[count++] = "life";
-  array[count++] = "are";
-  array[count++] = "apt";
-  array[count++] = "to";
-  array[count++] = "be";
-  array[count++] = "things";
-  array[count++] = "that";
-  array[count++] = "never";
-  array[count++] = "crossed";
-  array[count++] = "your";
-  array[count++] = "worried";
-  array[count++] = "mind";
-  array[count++] = "the";
-  array[count++] = "kind";
-  array[count++] = "that";
-  array[count++] = "blindside";
-  array[count++] = "you";
-  array[count++] = "at";
-  array[count++] = "4";
-  array[count++] = "pm";
-  array[count++] = "on";
-  array[count++] = "some";
-  array[count++] = "idle";
-  array[count++] = "Tuesday";
-  array[count++] = "Do";
-  array[count++] = "one";
-  array[count++] = "thing";
-  array[count++] = "every";
-  array[count++] = "day";
-  array[count++] = "that";
-  array[count++] = "scares";
-  array[count++] = "you";
-  array[count++] = "Sing";
-  array[count++] = "Dont";
-  array[count++] = "be";
-  array[count++] = "reckless";
-  array[count++] = "with";
-  array[count++] = "other";
-  array[count++] = "peoples";
-  array[count++] = "hearts";
-  array[count++] = "Dont";
-  array[count++] = "put";
-  array[count++] = "up";
-  array[count++] = "with";
-  array[count++] = "people";
-  array[count++] = "who";
-  array[count++] = "are";
-  array[count++] = "reckless";
-  array[count++] = "with";
-  array[count++] = "yours";
-  array[count++] = "Floss";
-  array[count++] = "Dont";
-  array[count++] = "waste";
-  array[count++] = "your";
-  array[count++] = "time";
-  array[count++] = "on";
-  array[count++] = "jealousy";
-  array[count++] = "Sometimes";
-  array[count++] = "youre";
-  array[count++] = "ahead";
-  array[count++] = "sometimes";
-  array[count++] = "youre";
-  array[count++] = "behind";
-  array[count++] = "The";
-  array[count++] = "race";
-  array[count++] = "is";
-  array[count++] = "long";
-  array[count++] = "and";
-  array[count++] = "in";
-  array[count++] = "the";
-  array[count++] = "end";
-  array[count++] = "its";
-  array[count++] = "only";
-  array[count++] = "with";
-  array[count++] = "yourself";
-  array[count++] = "Remember";
-  array[count++] = "compliments";
-  array[count++] = "you";
-  array[count++] = "receive";
-  array[count++] = "Forget";
-  array[count++] = "the";
-  array[count++] = "insults";
-  array[count++] = "If";
-  array[count++] = "you";
-  array[count++] = "succeed";
-  array[count++] = "in";
-  array[count++] = "doing";
-  array[count++] = "this";
-  array[count++] = "tell";
-  array[count++] = "me";
-  array[count++] = "how";
-  array[count++] = "Keep";
-  array[count++] = "your";
-  array[count++] = "old";
-  array[count++] = "love";
-  array[count++] = "letters";
-  array[count++] = "Throw";
-  array[count++] = "away";
-  array[count++] = "your";
-  array[count++] = "old";
-  array[count++] = "bank";
-  array[count++] = "statements";
-  array[count++] = "Stretch";
-  array[count++] = "Dont";
-  array[count++] = "feel";
-  array[count++] = "guilty";
-  array[count++] = "if";
-  array[count++] = "you";
-  array[count++] = "dont";
-  array[count++] = "know";
-  array[count++] = "what";
-  array[count++] = "you";
-  array[count++] = "want";
-  array[count++] = "to";
-  array[count++] = "do";
-  array[count++] = "with";
-  array[count++] = "your";
-  array[count++] = "life";
-  array[count++] = "The";
-  array[count++] = "most";
-  array[count++] = "interesting";
-  array[count++] = "people";
-  array[count++] = "I";
-  array[count++] = "know";
-  array[count++] = "didnt";
-  array[count++] = "know";
-  array[count++] = "at";
-  array[count++] = "22";
-  array[count++] = "what";
-  array[count++] = "they";
-  array[count++] = "wanted";
-  array[count++] = "to";
-  array[count++] = "do";
-  array[count++] = "with";
-  array[count++] = "their";
-  array[count++] = "lives";
-  array[count++] = "Some";
-  array[count++] = "of";
-  array[count++] = "the";
-  array[count++] = "most";
-  array[count++] = "interesting";
-  array[count++] = "40yearolds";
-  array[count++] = "I";
-  array[count++] = "know";
-  array[count++] = "still";
-  array[count++] = "dont";
-  array[count++] = "Get";
-  array[count++] = "plenty";
-  array[count++] = "of";
-  array[count++] = "calcium";
-  array[count++] = "Be";
-  array[count++] = "kind";
-  array[count++] = "to";
-  array[count++] = "your";
-  array[count++] = "knees";
-  array[count++] = "Youll";
-  array[count++] = "miss";
-  array[count++] = "them";
-  array[count++] = "when";
-  array[count++] = "theyre";
-  array[count++] = "gone";
-  array[count++] = "Maybe";
+  sprintf(array[count++].qstring, "theyre");
+  sprintf(array[count++].qstring, "gone");
+  sprintf(array[count++].qstring, "Maybe");
+
   array[count++] = "youll";
   array[count++] = "marry";
   array[count++] = "maybe";
