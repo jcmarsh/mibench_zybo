@@ -142,5 +142,6 @@ int main(void) {
     printf("Angle solution %d: %f\n", i, ang_result[i]);
   }
 
+  exit_platform();
   printf("safeword ");
 }

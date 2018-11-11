@@ -10,9 +10,11 @@
 #include <stdlib.h>
 #include "conio.h"
 #include <limits.h>
-#include <time.h>
+//#include <time.h>
 #include <float.h>
 #include "bitops.h"
+#include <platform.h>
+#include <xil_cache_l.h>
 
 #define FUNCS  7
 
@@ -50,30 +52,39 @@ int main(int argc, char *argv[])
     exit(-1);
 	}
   iterations=atoi(argv[1]);
-  
+
+  init_platform();
+
   puts("Bit counter algorithm benchmark\n");
-  
+
+  Xil_L2CacheFlush();
+  asm("drseus_start_tag:");
   for (i = 0; i < FUNCS; i++) {
-    start = clock();
+    // start = clock();
     
     for (j = n = 0, seed = rand(); j < iterations; j++, seed += 13)
 	 n += pBitCntFunc[i](seed);
     
-    stop = clock();
-    ct = (stop - start) / (double)CLOCKS_PER_SEC;
-    if (ct < cmin) {
-	 cmin = ct;
-	 cminix = i;
-    }
-    if (ct > cmax) {
-	 cmax = ct;
-	 cmaxix = i;
-    }
+    //stop = clock();
+    //ct = (stop - start) / (double)CLOCKS_PER_SEC;
+    //if (ct < cmin) {
+    //	 cmin = ct;
+    //	 cminix = i;
+    //}
+    //if (ct > cmax) {
+    //	 cmax = ct;
+    //	 cmaxix = i;
+    //}
     
-    printf("%-38s> Time: %7.3f sec.; Bits: %ld\n", text[i], ct, n);
+    //printf("%-38s> Time: %7.3f sec.; Bits: %ld\n", text[i], ct, n);
   }
-  printf("\nBest  > %s\n", text[cminix]);
-  printf("Worst > %s\n", text[cmaxix]);
+  asm("drseus_end_tag:");
+  Xil_L2CacheFlush();
+
+  exit_platform();
+  printf("safeword ");
+  //printf("\nBest  > %s\n", text[cminix]);
+  //printf("Worst > %s\n", text[cmaxix]);
   return 0;
 }
 
