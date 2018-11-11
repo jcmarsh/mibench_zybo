@@ -30,6 +30,7 @@
 *
 ******************************************************************************/
 
+#include <stdio.h>
 #include <xparameters.h>
 #include <xil_cache_l.h>
 #include <xgpio.h>
