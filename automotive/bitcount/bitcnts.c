@@ -47,15 +47,16 @@ int main(int argc, char *argv[])
     "Non-recursive bit count by bytes (AR)",
     "Shift and count bits"
   };
-  if (argc<2) {
-    fprintf(stderr,"Usage: bitcnts <iterations>\n");
-    exit(-1);
-	}
-  iterations=atoi(argv[1]);
+  //if (argc<2) {
+  //  fprintf(stderr,"Usage: bitcnts <iterations>\n");
+  //  exit(-1);
+  //	}
+  //iterations=atoi(argv[1]);
+  iterations = 10000; // 75000;
 
   init_platform();
 
-  puts("Bit counter algorithm benchmark\n");
+  printf("Bit counter algorithm benchmark. Iterations: %d\n", iterations);
 
   Xil_L2CacheFlush();
   asm("drseus_start_tag:");
