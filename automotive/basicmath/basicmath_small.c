@@ -8,7 +8,7 @@
 
 /* The printf's may be removed to isolate just the math calculations */
 
-#define CUBIC_NUM (4 + (10 * 2))
+#define CUBIC_NUM (4 + (10 * 4))
 int cubic_index = 0;
 int cubic_solutions[CUBIC_NUM] = {0};
 double cubic_x[CUBIC_NUM * 3] = {0.0};
@@ -68,7 +68,7 @@ int single_run(void)
   //for(b1=10;b1>0;b1--) {
   b1 = 10;
   //for(c1=5;c1<15;c1+=0.5) {
-  for(c1=5;c1<6;c1+=0.5) {
+  for(c1=5;c1<7;c1+=0.5) {
     for(d1=-1;d1>-11;d1--) {
       SolveCubic(a1, b1, c1, d1, &(cubic_solutions[cubic_index]), &(cubic_x[cubic_index * 3]));
       cubic_index++;
@@ -127,7 +127,7 @@ int main(void) {
   printf("Total: %d\n", cubic_index);
 
   for (int i = 0; i < cubic_index; i++) {
-    printf("Solutions:");
+    printf("Solutions:\n");
     for(int j = 0; j < cubic_solutions[i]; j++) {
       printf("\t%d: %f\n", cubic_solutions[i], cubic_x[(i * 3) + j]);
     }
@@ -135,7 +135,7 @@ int main(void) {
   }
 
   for (int i = 0; i < SQRT_NUM; i++) {
-    printf("sqrt(%d) = %f, remainder = %f\n", i, sqrt_solutions[i].sqrt, sqrt_solutions[i].frac);
+    printf("sqrt(%d) = %d\n", i, sqrt_solutions[i].sqrt);
   }
 
   for (int i = 0; i < ANG_NUM; i++) {
