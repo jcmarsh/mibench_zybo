@@ -637,6 +637,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "older");
   // 500
 
+  /*
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "get");
   sprintf(array[count++].qstring, "the");
@@ -2437,7 +2438,6 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "those");
   // 2000
 
-  /*
   sprintf(array[count++].qstring, "who");
   sprintf(array[count++].qstring, "supply");
   sprintf(array[count++].qstring, "it");
@@ -10680,6 +10680,7 @@ main(int argc, char *argv[]) {
   asm("drseus_start_tag:");
   qsort(array,count,sizeof(struct myStringStruct),compare);
   asm("drseus_end_tag:");
+  Xil_L2CacheFlush();
 
   // So that the output will be captured to detect data corruption
   for(i=0;i<count;i++) {
