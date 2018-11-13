@@ -297,6 +297,7 @@ typedef float      TOTAL_TYPE; /* for my PowerPC accelerator only */
 
 /* ********** Leave the rest - but you may need to remove one or both of sys/file.h and malloc.h lines */
 
+#include "input_small.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -338,101 +339,87 @@ usage()
 
 /* {{{ int getint(fp) derived from XV */
 
-int getint(fd)
-  FILE *fd;
+int getint(int index, int* new_int)
 {
   int c, i;
-  char dummy[10000];
+  char dummy[10];
 
-  c = getc(fd);
+  c = input_small_pgm[index++];
   while (1) /* find next integer */
   {
-    if (c=='#')    /* if we're at a comment, read to end of line */
-      fgets(dummy,9000,fd);
-    if (c==EOF)
+    if (c=='#') {   /* if we're at a comment, read to end of line */
+      while (c != '\n') {
+        c = input_small_pgm[index++];
+      }
+    }
+    if (c==EOF) {
       exit_error("Image %s not binary PGM.\n","is");
-    if (c>='0' && c<='9')
+    }
+    if (c>='0' && c<='9') {
       break;   /* found what we were looking for */
-    c = getc(fd);
+    }
+    c = input_small_pgm[index++];
   }
 
-  /* we're at the start of a number, continue until we hit a non-number */
-  i = 0;
-  while (1) {
-    i = (i*10) + (c - '0');
-    c = getc(fd);
-    if (c==EOF) return (i);
-    if (c<'0' || c>'9') break;
-  }
+  sscanf(&(input_small_pgm[index - 1]), "%d", new_int);
+  sprintf(dummy, "%d", *new_int);
+  index = (index - 1) + strlen(dummy);
 
-  return (i);
+  return (index);
 }
 
 /* }}} */
 
-void get_image(filename,in,x_size,y_size)
-  char           filename[200];
+void get_image(in,x_size,y_size)
   unsigned char  **in;
   int            *x_size, *y_size;
 {
-FILE  *fd;
-char header [100];
-int  tmp;
-
-#ifdef FOPENB
-  if ((fd=fopen(filename,"rb")) == NULL)
-#else
-  if ((fd=fopen(filename,"r")) == NULL)
-#endif
-    exit_error("Can't input image %s.\n",filename);
+  char header [100];
+  int  tmp;
+  int index = 0;
 
   /* {{{ read header */
+  header[0]=input_small_pgm[index++];
+  header[1]=input_small_pgm[index++];
+  if(!(header[0]=='P' && header[1]=='5')) {
+    printf("Image input_small.h does not have binary PGM header.\n");
+    exit(0);
+  }
 
-  header[0]=fgetc(fd);
-  header[1]=fgetc(fd);
-  if(!(header[0]=='P' && header[1]=='5'))
-    exit_error("Image %s does not have binary PGM header.\n",filename);
+  index = getint(index, x_size);
+  index = getint(index, y_size);
 
-  *x_size = getint(fd);
-  *y_size = getint(fd);
-  tmp = getint(fd);
+  index = getint(index, &tmp);
 
 /* }}} */
 
+  // printf("Image size is %d x %d\n", *x_size, *y_size);
+
   *in = (uchar *) malloc(*x_size * *y_size);
+  memcpy(*in, &(input_small_pgm[index]), *x_size * *y_size);
 
-  if (fread(*in,1,*x_size * *y_size,fd) == 0)
-    exit_error("Image %s is wrong size.\n",filename);
-
-  fclose(fd);
+  // printf("Copied %d bytes out of %d total\n", (*x_size * *y_size), input_small_pgm_len);
 }
 
 /* }}} */
 /* {{{ put_image(filename,in,x_size,y_size) */
 
-put_image(filename,in,x_size,y_size)
-  char filename [100],
-       *in;
+put_image(in,x_size,y_size)
+  char *in;
   int  x_size,
        y_size;
 {
-FILE  *fd;
-
-#ifdef FOPENB
-  if ((fd=fopen(filename,"wb")) == NULL) 
-#else
-  if ((fd=fopen(filename,"w")) == NULL) 
-#endif
-    exit_error("Can't output image%s.\n",filename);
-
-  fprintf(fd,"P5\n");
-  fprintf(fd,"%d %d\n",x_size,y_size);
-  fprintf(fd,"255\n");
+  printf("P5\n");
+  printf("%d %d\n",x_size,y_size);
+  printf("255\n");
   
-  if (fwrite(in,x_size*y_size,1,fd) != 1)
-    exit_error("Can't write image %s.\n",filename);
+  if (fwrite(in,x_size*y_size,1,stdout) != 1) {
+    printf("Can't write image.\n");
+    exit(0);
+  }
 
-  fclose(fd);
+  printf("\n");
+  fflush(stdout);
 }
 
 /* }}} */
@@ -1966,8 +1953,7 @@ main(argc, argv)
 /* {{{ vars */
 
 FILE   *ofp;
-char   filename [80],
-       *tcp;
+char   *tcp;
 uchar  *in, *bp, *mid;
 float  dt=4.0;
 int    *r,
@@ -1986,12 +1972,10 @@ CORNER_LIST corner_list;
 
 /* }}} */
 
-  if (argc<3)
+  if (argc<1)
     usage();
 
-  get_image(argv[1],&in,&x_size,&y_size);
-
-  /* {{{ look at options */
+  get_image(&in,&x_size,&y_size);
 
   while (argindex < argc)
   {
@@ -2003,6 +1987,7 @@ CORNER_LIST corner_list;
           mode=0;
 	  break;
         case 'e': /* edges */
+          printf("Edgy\n");
           mode=1;
 	  break;
         case 'c': /* corners */
@@ -2116,7 +2101,7 @@ CORNER_LIST corner_list;
 
 /* }}} */
 
-  put_image(argv[2],in,x_size,y_size);
+  put_image(in,x_size,y_size);
 }
 
 /* }}} */
