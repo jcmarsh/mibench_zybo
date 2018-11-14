@@ -304,6 +304,9 @@ typedef float      TOTAL_TYPE; /* for my PowerPC accelerator only */
 #include <math.h>
 #include <sys/file.h>    /* may want to remove this line */
 #include <malloc.h>      /* may want to remove this line */
+#include <platform.h>
+#include <xil_cache_l.h>
+
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 #define  FTOI(a) ( (a) < 0 ? ((int)(a-0.5)) : ((int)(a+0.5)) )
 typedef  unsigned char uchar;
@@ -1971,67 +1974,19 @@ int    *r,
 CORNER_LIST corner_list;
 
 /* }}} */
-
-  if (argc<1)
-    usage();
-
+  init_platform();
+ 
+  mode = 1; // hardcoding edges
   get_image(&in,&x_size,&y_size);
-
-  while (argindex < argc)
-  {
-    tcp = argv[argindex];
-    if (*tcp == '-')
-      switch (*++tcp)
-      {
-        case 's': /* smoothing */
-          mode=0;
-	  break;
-        case 'e': /* edges */
-          printf("Edgy\n");
-          mode=1;
-	  break;
-        case 'c': /* corners */
-          mode=2;
-	  break;
-        case 'p': /* principle */
-          principle=1;
-	  break;
-        case 'n': /* thinning post processing */
-          thin_post_proc=0;
-	  break;
-        case 'b': /* simple drawing mode */
-          drawing_mode=1;
-	  break;
-        case '3': /* 3x3 flat mask */
-          three_by_three=1;
-	  break;
-        case 'q': /* quick susan mask */
-          susan_quick=1;
-	  break;
-	case 'd': /* distance threshold */
-          if (++argindex >= argc){
-	    printf ("No argument following -d\n");
-	    exit(0);}
-	  dt=atof(argv[argindex]);
-          if (dt<0) three_by_three=1;
-	  break;
-	case 't': /* brightness threshold */
-          if (++argindex >= argc){
-	    printf ("No argument following -t\n");
-	    exit(0);}
-	  bt=atoi(argv[argindex]);
-	  break;
-      }	    
-      else
-        usage();
-    argindex++;
-  }
 
   if ( (principle==1) && (mode==0) )
     mode=1;
 
 /* }}} */
   /* {{{ main processing */
+
+  Xil_L2CacheFlush();
+  asm("drseus_start_tag:");
 
   switch (mode)
   {
@@ -2099,9 +2054,16 @@ CORNER_LIST corner_list;
 /* }}} */
   }    
 
+  asm("drseus_end_tag:");
+  Xil_L2CacheFlush();
+
 /* }}} */
 
   put_image(in,x_size,y_size);
+
+  exit_platform();
+  printf("safeword ");
+  return 0;
 }
 
 /* }}} */
