@@ -5,6 +5,13 @@
 #include <stdio.h>
 #include "crc.h"
 
+#include "input_small.h"
+#ifndef NATIVE
+#include <platform.h>
+#include <xil_cache_l.h>
+#endif
+
+
 #ifdef __TURBOC__
  #pragma warn -cln
 #endif
@@ -156,6 +163,23 @@ Boolean_T crc32file(char *name, DWORD *crc, long *charcnt)
       return Success_;
 }
 
+Boolean_T crc32header(DWORD *crc, long *charcnt)
+{
+      register DWORD oldcrc32;
+      register int c;
+
+      oldcrc32 = 0xFFFFFFFF; *charcnt = 0;
+
+      for (int index = 0; index < small_pcm_len; index++) {
+	++*charcnt;
+	oldcrc32 = UPDC32(small_pcm[index], oldcrc32);
+      }
+
+      *crc = oldcrc32 = ~oldcrc32;
+
+      return Success_;
+}
+
 DWORD crc32buf(char *buf, size_t len)
 {
       register DWORD oldcrc32;
@@ -178,10 +202,28 @@ main(int argc, char *argv[])
       long charcnt;
       register errors = 0;
 
-      while(--argc > 0)
-      {
-            errors |= crc32file(*++argv, &crc, &charcnt);
-            printf("%08lX %7ld %s\n", crc, charcnt, *argv);
-      }
+      //#while(--argc > 0)
+      //{
+      //      errors |= crc32file(*++argv, &crc, &charcnt);
+      //      printf("%08lX %7ld %s\n", crc, charcnt, *argv);
+      //}
+
+#ifndef NATIVE
+      init_platform();
+      Xil_L2CacheFlush();
+#endif
+      asm("drseus_start_tag:");
+      errors = crc32header(&crc, &charcnt);
+      asm("drseus_end_tag:");
+#ifndef NATIVE
+      Xil_L2CacheFlush();
+#endif
+
+      printf("%08lX %7ld %s\n", crc, charcnt, "input_small.h");
+      printf("safeword");
+
+#ifndef NATIVE
+      exit_platform();
+#endif
       return(errors != 0);
 }
