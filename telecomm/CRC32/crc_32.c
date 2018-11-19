@@ -220,7 +220,7 @@ main(int argc, char *argv[])
 #endif
 
       printf("%08lX %7ld %s\n", crc, charcnt, "input_small.h");
-      printf("safeword");
+      printf("safeword ");
 
 #ifndef NATIVE
       exit_platform();
