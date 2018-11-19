@@ -124,7 +124,9 @@ void run_fft_tagged(unsigned MAXWAVES, unsigned MAXSIZE) {
  /* regular*/
  fft_float (MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut);
  asm("drseus_end_tag:");
- 
+
+ Xil_L2CacheFlush();
+
  printf("RealOut:\n");
  for (i=0;i<(MAXSIZE / 4);i++)
    // MAXSIZE better be a multiple of 4! (likely a power of 2, so should be fine)
