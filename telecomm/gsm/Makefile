@@ -4,7 +4,6 @@
 # details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
 #
 
-
 # Machine dependent flags you must configure to port
 
 SASR	= -DSASR
@@ -56,29 +55,12 @@ LD 		= $(CC)
 ######### Additional libraries needed by $(LD)
 
 
-# Where do you want to install libraries, binaries, a header file
-# and the manual pages?
-#
-# Leave INSTALL_ROOT empty (or just don't execute "make install") to
-# not install gsm and toast outside of this directory.
-
 INSTALL_ROOT	=
-
-# Where do you want to install the gsm library, header file, and manpages?
-#
-# Leave GSM_INSTALL_ROOT empty to not install the GSM library outside of
-# this directory.
 
 GSM_INSTALL_ROOT = $(INSTALL_ROOT)
 GSM_INSTALL_LIB = $(GSM_INSTALL_ROOT)/lib
 GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/inc
 GSM_INSTALL_MAN = $(GSM_INSTALL_ROOT)/man/man3
-
-
-# Where do you want to install the toast binaries and their manpage?
-#
-# Leave TOAST_INSTALL_ROOT empty to not install the toast binaries outside
-# of this directory.
 
 TOAST_INSTALL_ROOT	  = $(INSTALL_ROOT)
 TOAST_INSTALL_BIN = $(TOAST_INSTALL_ROOT)/bin
@@ -272,6 +254,13 @@ TOAST_INSTALL_TARGETS =	\
 all:		$(LIBGSM) $(TOAST) $(TCAT) $(UNTOAST)
 		@-echo $(ROOT): Done.
 
+# Adding native target, elf target?
+native: $(LIBGSM) $(TOAST)
+
+input_small.h: ./data/small.au
+	xxd -i ./data/small.au > input_small.h
+
+
 tst:		$(TST)/lin2cod $(TST)/cod2lin $(TOAST) $(TST)/test-result
 		@-echo tst: Done.
 
@@ -419,6 +408,7 @@ clean:	semi-clean
 			$(TOAST) $(TCAT) $(UNTOAST)	\
 			$(ROOT)/gsm-1.0.tar.Z \
 			output*
+	rm -rf input_small.h
 
 
 # Two tools that helped me generate gsm_encode.c and gsm_decode.c,

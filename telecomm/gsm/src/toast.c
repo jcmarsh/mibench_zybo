@@ -695,6 +695,20 @@ err:
 	return -1;
 }
 
+static int process_from_header (void)
+{
+	int step = 0;
+
+	/* init_input() is called */
+
+	/* process_encode() is called */
+
+	/* fflush is called */
+
+
+	return 0;
+}
+
 static void version P0()
 {
 	printf( "%s 1.0, version %s\n",
@@ -740,48 +754,17 @@ static void set_format P1((f), struct fmtdesc * f)
 
 int main P2((ac, av), int ac, char **av)
 {
-	int  		opt;
-	extern int	optind;
-
-	parse_argv0( *av );
-
-	while ((opt = getopt(ac, av, "fcdpvhuaslVF")) != EOF)
-	switch (opt) {
-
-	case 'd': f_decode   = 1; break;
-	case 'f': f_force    = 1; break;
-	case 'c': f_cat      = 1; break;
-	case 'p': f_precious = 1; break;
-	case 'F': f_fast     = 1; break;
-
-#ifndef	NDEBUG
-	case 'V': f_verbose  = 1; break;	/* undocumented */
-#endif
-
-	case 'u': set_format( &f_ulaw   ); break;
-	case 'l': set_format( &f_linear ); break;
-	case 'a': set_format( &f_alaw	); break;
-	case 's': set_format( &f_audio  ); break;
-
-	case 'v': version(); exit(0);
-	case 'h': help();    exit(0);
-
-	default: 
-		fprintf(stderr,
-			"Usage: %s [-fcpdhvuaslF] [files...] (-h for help)\n",
-			progname);
-		exit(1);
-	}
+	f_force    = 1; /* -fps -c */
+	f_cat      = 1;
+	f_precious = 1;
+	set_format( &f_audio  );
 
 	f_precious |= f_cat;
 
-	av += optind;
-	ac -= optind;
 
-	catch_signals(onintr);
-
-	if (ac <= 0) process( (char *)0 );
-	else while (ac--) process( *av++ );
+	printf("This is happening\n");
+	process_from_header();
+	printf("Annnd scene.\n");
 
 	exit(0);
 }
