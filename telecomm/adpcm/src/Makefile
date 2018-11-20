@@ -1,41 +1,52 @@
-#
-# Makefile for adpcm and test programs
-# -------------------
+CFLAGS = -Wall -static -O3
+INC = -I../../../../jtag_eval/basic_bsp/ps7_cortexa9_0/include -I../../../zybo_build_common
+LIB = -L../../../../jtag_eval/basic_bsp/ps7_cortexa9_0/lib
 
-#####################################################################
-# Added by C. Lee.
-#
-# On Sun machines, gcc need to be informed whether the machines have
-# integer multipliers by specifying this option: -mv8.
-#
-# Also, on Sun machines, in order to use the SPIXTOOLS and SHADE,
-# uncomment this option: -static.
-#
-CC = gcc
-LFLAGS = -mv8
-LFLAGS = $(LFLAGS) -static
-#
-# End of addition
-######################################################################
-CFLAGS = -static -O3
+SPEC = -specs=../../../zybo_build_common/Xilinx.spec
 
-# May need this on a sun:
-# CFLAGS=-O -I/usr/demo/SOUND
+# From subdir.mk
+LD_SRCS += ../../../zybo_build_common/lscript.ld
 
-all: adpcm.o rawcaudio rawdaudio timing
-	cp rawcaudio rawdaudio timing ../bin/.
+C_SRCS += ../../../zybo_build_common/platform.c \
+adpcm.c \
+test_audio.c
 
-adpcm.o: adpcm.h
+OBJS += ../../../zybo_build_common/platform.o \
+adpcm.o \
+test_audio.o
 
-rawcaudio: rawcaudio.o adpcm.o
-	$(CC) $(CFLAGS) rawcaudio.o adpcm.o -o rawcaudio
+C_DEPS += ../../../zybo_build_common/platform.d \
+adpcm.d \
+test_audio.d
 
-rawdaudio: rawdaudio.o adpcm.o
-	$(CC) $(CFLAGS) rawdaudio.o adpcm.o -o rawdaudio
+# From objects.mk
+USER_OBJS :=
+LIBS := -Wl,-lm,--start-group,-lxil,-lgcc,-lc,--end-group
 
-timing: timing.o adpcm.o
-	$(CC) $(CFLAGS) timing.o adpcm.o -o timing
+# All Target
+all: input_small.h mi_adpcm.elf
 
-# Added by C. Lee
+input_small.h: ../data/small.pcm
+	xxd -i ../data/small.pcm > input_small.h
+
+native: input_small.h test_audio.c adpcm.c adpcm.h
+	gcc $(CFLAGS) -g -o test_audio test_audio.c adpcm.c -DNATIVE
+
+%.o: %.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM v7 gcc compiler'
+	arm-none-eabi-gcc $(CFLAGS) -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard $(INC) -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+mi_adpcm.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: ARM v7 gcc linker'
+	arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none $(SPEC) -Wl,-T -Wl,$(LD_SRCS) $(LIB) -o "mi_adpcm.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+# Other Targets
 clean:
-	rm -f *.o ; rm rawcaudio rawdaudio timing ; rm -f ../bin/* ../output*
+	rm -rf $(EXECUTABLES) $(OBJS) $(S_UPPER_DEPS) $(C_DEPS) mi_adpcm.elf Xilinx.spec input_small.h test_audio
+	-@echo ' '
