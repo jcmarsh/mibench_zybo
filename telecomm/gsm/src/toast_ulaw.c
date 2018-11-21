@@ -601,6 +601,20 @@ static unsigned char s2u[] = {
 0175,0176
 };
 
+int header_index = 0;
+
+int ulaw_header_input P1((buf), gsm_signal * buf)
+{
+	int i, c;
+
+	for (i = 0; i < 160 && header_index < __data_small_au_len; i++) {
+	  c =  __data_small_au[header_index++];
+	  buf[i] = U2S(c);
+	}
+	if (c == EOF && ferror(in)) return -1;
+	return i;
+}
+
 int ulaw_input P1((buf), gsm_signal * buf)
 {
 	int i, c;

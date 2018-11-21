@@ -7,6 +7,7 @@
 /* $Header: /home/mguthaus/.cvsroot/mibench/telecomm/gsm/src/toast.c,v 1.1.1.1 2000/11/06 19:54:26 mguthaus Exp $ */
 
 #include	"toast.h"
+#include        "input_small.h"
 
 /*  toast -- lossy sound compression using the gsm library.
  */
@@ -63,7 +64,7 @@ struct fmtdesc {
 		"8 kHz, 8 bit u-law encoding with Sun audio header", ".au",
 		audio_init_input,
 		audio_init_output,
-		ulaw_input,
+		ulaw_header_input, /* ulaw_input, */
 		ulaw_output
 }, f_ulaw = {
 		"u-law", "plain 8 kHz, 8 bit u-law encoding", ".u",
@@ -695,16 +696,31 @@ err:
 	return -1;
 }
 
+extern header_index;
+
 static int process_from_header (void)
 {
 	int step = 0;
+	int index = 0;
 
-	/* init_input() is called */
+	/* init_input() is called.
+	 * There are multiple init_input / input functions, one for each encoding
+	 * The runme_small.sh file uses the toast_audio.c implementations:
+	 *    .au extentions, .snd header, len = 0x20, enc = 0x01
+	 *    length seems to be that of the header (32 bytes)
+	 */
 
-	/* process_encode() is called */
+	/* Skip the header */
+	header_index = 32;
+
+	/* process_encode() is called
+	 * calls the input function, which is set to ulaw_input by audio_init_input
+	 */
+
+	// init_platform, flush, tag, process, tag, flush, print?
+	// The printing is a problem... the code here prints as it goes. Save to an array and print afterwards?
 
 	/* fflush is called */
-
 
 	return 0;
 }
