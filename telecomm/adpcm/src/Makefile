@@ -45,6 +45,7 @@ mi_adpcm.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
 	arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none $(SPEC) -Wl,-T -Wl,$(LD_SRCS) $(LIB) -o "mi_adpcm.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	mv mi_adpcm.elf ../
 
 # Other Targets
 clean:
