@@ -99,6 +99,7 @@
 
 extern int 	audio_init_input P((void)), audio_init_output P((void));
 extern int	ulaw_input   P((gsm_signal*)), ulaw_output   P((gsm_signal *));
+extern int	ulaw_header_input   P((gsm_signal*)), ulaw_output   P((gsm_signal *));
 extern int	alaw_input   P((gsm_signal*)), alaw_output   P((gsm_signal *));
 extern int	linear_input P((gsm_signal*)), linear_output P((gsm_signal *));
 

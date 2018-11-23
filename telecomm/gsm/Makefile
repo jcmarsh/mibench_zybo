@@ -255,11 +255,12 @@ all:		$(LIBGSM) $(TOAST) $(TCAT) $(UNTOAST)
 		@-echo $(ROOT): Done.
 
 # Adding native target, elf target?
-native: $(LIBGSM) $(TOAST)
+native: input_small.h $(LIBGSM) $(TOAST)
 
 input_small.h: ./data/small.au
 	xxd -i ./data/small.au > input_small.h
 
+#mi_gsm.elf: ./imput_small.h
 
 tst:		$(TST)/lin2cod $(TST)/cod2lin $(TOAST) $(TST)/test-result
 		@-echo tst: Done.

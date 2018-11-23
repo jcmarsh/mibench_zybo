@@ -7,7 +7,11 @@
 /* $Header: /home/mguthaus/.cvsroot/mibench/telecomm/gsm/src/toast.c,v 1.1.1.1 2000/11/06 19:54:26 mguthaus Exp $ */
 
 #include	"toast.h"
-#include        "input_small.h"
+
+#define MAX_SIZE 32768
+
+char output_array[MAX_SIZE] = {0};
+int output_index = 0;
 
 /*  toast -- lossy sound compression using the gsm library.
  */
@@ -534,13 +538,18 @@ static int process_encode P0()
 		if (cc < sizeof(s) / sizeof(*s))
 			memset((char *)(s+cc), 0, sizeof(s)-(cc * sizeof(*s)));
 		gsm_encode(r, s, d);
+
+		memcpy(&(output_array[output_index]), d, sizeof(d));
+		output_index = output_index + sizeof(d);
+
+		/*
 		if (fwrite((char *)d, sizeof(d), 1, out) != 1) {
 			perror(outname ? outname : "stdout");
 			fprintf(stderr, "%s: error writing to %s\n",
 				progname, outname ? outname : "stdout");
 			gsm_destroy(r);
 			return -1;
-		}
+			} */
 	}
 	if (cc < 0) {
 		perror(inname ? inname : "stdin");
@@ -703,24 +712,34 @@ static int process_from_header (void)
 	int step = 0;
 	int index = 0;
 
+	/*
+	 * open_input does some things...
+	 * if (!f) f = grok_format(inname);
+	 * prepare_io( f ? f : & DEFAULT_FORMAT ); static void prepare_io P1(( desc), struct fmtdesc * desc)
+	 */
+	prepare_io(& f_audio);
+
 	/* init_input() is called.
 	 * There are multiple init_input / input functions, one for each encoding
 	 * The runme_small.sh file uses the toast_audio.c implementations:
 	 *    .au extentions, .snd header, len = 0x20, enc = 0x01
 	 *    length seems to be that of the header (32 bytes)
 	 */
+	/* init_input(); */
 
 	/* Skip the header */
 	header_index = 32;
 
+
+	/* init_platform, flush, tag, process, tag, flush, print? */
+
 	/* process_encode() is called
 	 * calls the input function, which is set to ulaw_input by audio_init_input
 	 */
-
-	// init_platform, flush, tag, process, tag, flush, print?
-	// The printing is a problem... the code here prints as it goes. Save to an array and print afterwards?
+	process_encode();
 
 	/* fflush is called */
+	fwrite(output_array, output_index, 1, stdout);
 
 	return 0;
 }
