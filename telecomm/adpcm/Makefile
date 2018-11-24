@@ -6,3 +6,4 @@ native:
 
 clean:
 	make -C ./src clean
+	rm -rf mi_adpcm.elf

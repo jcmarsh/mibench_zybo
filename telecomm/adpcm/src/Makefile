@@ -49,5 +49,5 @@ mi_adpcm.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
 
 # Other Targets
 clean:
-	rm -rf $(EXECUTABLES) $(OBJS) $(S_UPPER_DEPS) $(C_DEPS) mi_adpcm.elf Xilinx.spec input_small.h test_audio
+	rm -rf $(EXECUTABLES) $(OBJS) $(S_UPPER_DEPS) $(C_DEPS) Xilinx.spec input_small.h test_audio
 	-@echo ' '
