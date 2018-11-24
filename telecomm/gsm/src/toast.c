@@ -7,6 +7,8 @@
 /* $Header: /home/mguthaus/.cvsroot/mibench/telecomm/gsm/src/toast.c,v 1.1.1.1 2000/11/06 19:54:26 mguthaus Exp $ */
 
 #include	"toast.h"
+#include <platform.h>
+#include <xil_cache_l.h>
 
 #define MAX_SIZE 32768
 
@@ -712,6 +714,7 @@ static int process_from_header (void)
 	int step = 0;
 	int index = 0;
 
+          init_platform();
 	/*
 	 * open_input does some things...
 	 * if (!f) f = grok_format(inname);
@@ -731,15 +734,19 @@ static int process_from_header (void)
 	header_index = 32;
 
 
-	/* init_platform, flush, tag, process, tag, flush, print? */
-
 	/* process_encode() is called
 	 * calls the input function, which is set to ulaw_input by audio_init_input
 	 */
+        Xil_L2CacheFlush();
+        asm("drseus_start_tag:");
 	process_encode();
+        asm("drseus_end_tag:");
+        Xil_L2CacheFlush();
 
 	/* fflush is called */
 	fwrite(output_array, output_index, 1, stdout);
+        printf("safeword ");
+        exit_platform();
 
 	return 0;
 }
