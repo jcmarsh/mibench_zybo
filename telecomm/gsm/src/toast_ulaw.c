@@ -7,6 +7,7 @@
 /* $Header: /home/mguthaus/.cvsroot/mibench/telecomm/gsm/src/toast_ulaw.c,v 1.1.1.1 2000/11/06 19:54:26 mguthaus Exp $ */
 
 #include	"toast.h"
+#include        "../input_small.h"
 
 /* toast_ulaw -- functions to manipulate u-law encoded sound.
  */
