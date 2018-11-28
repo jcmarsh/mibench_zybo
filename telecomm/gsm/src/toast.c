@@ -745,6 +745,8 @@ static int process_from_header (void)
 
 	/* fflush is called */
 	fwrite(output_array, output_index, 1, stdout);
+        fflush(stdout);
+
         printf("safeword ");
         exit_platform();
 
