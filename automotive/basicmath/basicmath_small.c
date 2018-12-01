@@ -8,7 +8,7 @@
 
 /* The printf's may be removed to isolate just the math calculations */
 
-#define CUBIC_NUM (4 + (10 * 20))
+#define CUBIC_NUM (4 + (10 * 20 * 6)) // D * C * B * A iterations, +4 test
 int cubic_index = 0;
 int cubic_solutions[CUBIC_NUM] = {0};
 double cubic_x[CUBIC_NUM * 3] = {0.0};
@@ -66,18 +66,19 @@ int single_run(void)
   //for(a1=1;a1<10;a1++) {
   a1 = 1;
   //for(b1=10;b1>0;b1--) {
-  b1 = 10;
-  for(c1=5;c1<15;c1+=0.5) {
-    for(d1=-1;d1>-11;d1--) {
-      SolveCubic(a1, b1, c1, d1, &(cubic_solutions[cubic_index]), &(cubic_x[cubic_index * 3]));
-      cubic_index++;
-	  //printf("Solutions:");
-	  //for(i=0;i<solutions;i++)
-          //printf(" %f",x[i]);
-	  //printf("\n");
+  for(b1=10;b1>4;b1--) {
+    // b1 = 10;
+    for(c1=5;c1<15;c1+=0.5) {
+      for(d1=-1;d1>-11;d1--) {
+        SolveCubic(a1, b1, c1, d1, &(cubic_solutions[cubic_index]), &(cubic_x[cubic_index * 3]));
+        cubic_index++;
+        //printf("Solutions:");
+        //for(i=0;i<solutions;i++)
+        //printf(" %f",x[i]);
+        //printf("\n");
+      }
     }
   }
-  //  }
   //  }
   
   //printf("********* INTEGER SQR ROOTS ***********\n");

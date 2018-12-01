@@ -15,7 +15,7 @@
 struct adpcm_state coder_state;
 
 // From input_small: ___data_small_pcm_len = 1368864; <- Max
-#define IN_BYTES 32768 // 65536 // 1368864
+#define IN_BYTES 65536 // 1368864
 
 // ___data_small_pcm_len is the number of bytes in the array
 // Output should be 1/4 the bytes

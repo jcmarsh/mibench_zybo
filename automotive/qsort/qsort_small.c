@@ -637,7 +637,6 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "older");
   // 500
 
-  /*
   sprintf(array[count++].qstring, "you");
   sprintf(array[count++].qstring, "get");
   sprintf(array[count++].qstring, "the");
@@ -1238,6 +1237,7 @@ main(int argc, char *argv[]) {
   sprintf(array[count++].qstring, "when");
   // 1000
 
+  /*
   sprintf(array[count++].qstring, "theyre");
   sprintf(array[count++].qstring, "gone");
   sprintf(array[count++].qstring, "Maybe");

@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
   //  exit(-1);
   //	}
   //iterations=atoi(argv[1]);
-  iterations = 1000; // 75000;
+  iterations = 3000; // 75000;
 
   init_platform();
 
