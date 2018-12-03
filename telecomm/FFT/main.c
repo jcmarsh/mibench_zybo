@@ -165,11 +165,11 @@ int main(int argc, char *argv[]) {
 		invfft = !strncmp(argv[3],"-i",2);
 	*/
 
-	// MAXSIZE= 4096; // atoi(argv[2]);
-	// MAXWAVES= 4; //atoi(argv[1]);
+	MAXSIZE= 4096; // atoi(argv[2]);
+	MAXWAVES= 4; //atoi(argv[1]);
 
-        MAXSIZE= 2048; // atoi(argv[2]);
-        MAXWAVES= 4; //atoi(argv[1]);
+        // MAXSIZE= 2048; // atoi(argv[2]);
+        // MAXWAVES= 4; //atoi(argv[1]);
 
         // MAXSIZE=512;
         // MAXWAVES=4;
