@@ -24,9 +24,7 @@ qsort_small.d
 USER_OBJS :=
 LIBS := -Wl,-lm,--start-group,-lxil,-lgcc,-lc,--end-group
 
-ELFSIZE += mi_qsort.elf.size
-
-all: mi_qsort.elf secondary-outputs
+all: mi_qsort.elf
 
 %.o: %.c
 	@echo 'Building file: $<'
@@ -42,22 +40,14 @@ mi_qsort.elf: $(OBJS) $(LD_SRCS) $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-mi_qsort.elf.size: mi_qsort.elf
-	@echo 'Invoking: ARM v7 Print Size'
-	arm-none-eabi-size mi_qsort.elf  |tee "mi_qsort.elf.size"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	rm -rf $(EXECUTABLES) $(OBJS) $(S_UPPER_DEPS) $(C_DEPS) $(ELFSIZE) mi_qsort.elf Xilinx.spec
+	rm -rf $(EXECUTABLES) $(OBJS) $(S_UPPER_DEPS) $(C_DEPS) mi_qsort.elf Xilinx.spec
 	-@echo ' '
 
 pre-build:
 	-a9-linaro-pre-build-step
 	-@echo ' '
-
-secondary-outputs: $(ELFSIZE)
 
 .PHONY: all clean dependents
 .SECONDARY: main-build pre-build
