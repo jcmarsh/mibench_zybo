@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "input_data.h"
 
-#define NUM_NODES                          100
+// #define NUM_NODES                          100
 #define NONE                               9999
 
 struct _NODE
@@ -24,7 +26,7 @@ QITEM *qHead = NULL;
              
              
              
-int AdjMatrix[NUM_NODES][NUM_NODES];
+// int AdjMatrix[NUM_NODES][NUM_NODES];
 
 int g_qCount = 0;
 NODE rgnNodes[NUM_NODES];
