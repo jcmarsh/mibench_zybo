@@ -145,25 +145,26 @@ int dijkstra(int chStart, int chEnd)
 }
 
 int main(int argc, char *argv[]) {
-  int i,j,k;
-  FILE *fp;
+  int i,j;
+  //FILE *fp;
   
-  if (argc<2) {
-    fprintf(stderr, "Usage: dijkstra <filename>\n");
-    fprintf(stderr, "Only supports matrix size is #define'd.\n");
-  }
+  //if (argc<2) {
+  //  fprintf(stderr, "Usage: dijkstra <filename>\n");
+  //  fprintf(stderr, "Only supports matrix size is #define'd.\n");
+  //}
 
   /* open the adjacency matrix file */
-  fp = fopen (argv[1],"r");
+  //Data is in input_data.h now
+  //fp = fopen (argv[1],"r");
 
   /* make a fully connected matrix */
-  for (i=0;i<NUM_NODES;i++) {
-    for (j=0;j<NUM_NODES;j++) {
-      /* make it more sparce */
-      fscanf(fp,"%d",&k);
-			AdjMatrix[i][j]= k;
-    }
-  }
+  //for (i=0;i<NUM_NODES;i++) {
+  //  for (j=0;j<NUM_NODES;j++) {
+  //    /* make it more sparce */
+  //    fscanf(fp,"%d",&k);
+  //		AdjMatrix[i][j]= k;
+  //  }
+  //}
 
   /* finds 10 shortest paths between nodes */
   for (i=0,j=NUM_NODES/2;i<20;i++,j++) {
